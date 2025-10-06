@@ -18,8 +18,7 @@ import com.google.android.material.button.MaterialButton
 class HabitsAdapter(
     private val onHabitClick: (Habit) -> Unit,
     private val onProgressClick: (Habit, HabitProgress) -> Unit,
-    private val onDeleteClick: (Habit) -> Unit,
-    private val onShareClick: (Habit) -> Unit
+    private val onDeleteClick: (Habit) -> Unit
 ) : RecyclerView.Adapter<HabitsAdapter.HabitViewHolder>() {
 
     private var habitsWithProgress: List<Pair<Habit, HabitProgress>> = emptyList()
@@ -55,7 +54,7 @@ class HabitsAdapter(
         private val tvStreak: TextView = itemView.findViewById(R.id.tv_streak)
         private val progressBar: ProgressBar = itemView.findViewById(R.id.progress_bar_habit)
         private val btnToggleCompletion: MaterialButton = itemView.findViewById(R.id.btn_toggle_completion)
-        private val btnShare: ImageButton = itemView.findViewById(R.id.btn_share)
+        private val btnEditHabit: ImageButton = itemView.findViewById(R.id.btn_edit_habit)
         private val btnDelete: ImageButton = itemView.findViewById(R.id.btn_delete)
 
         fun bind(habit: Habit, progress: HabitProgress) {
@@ -106,8 +105,8 @@ class HabitsAdapter(
 
             // Click listeners
             itemView.setOnClickListener { onHabitClick(habit) }
+            btnEditHabit.setOnClickListener { onHabitClick(habit) }
             btnToggleCompletion.setOnClickListener { onProgressClick(habit, progress) }
-            btnShare.setOnClickListener { onShareClick(habit) }
             btnDelete.setOnClickListener { onDeleteClick(habit) }
             
             // Update progress bar color based on completion

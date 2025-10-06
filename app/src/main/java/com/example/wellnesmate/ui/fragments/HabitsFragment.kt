@@ -88,8 +88,7 @@ class HabitsFragment : Fragment() {
         habitsAdapter = HabitsAdapter(
             onHabitClick = { habit -> editHabit(habit) },
             onProgressClick = { habit, progress -> toggleHabitProgress(habit, progress) },
-            onDeleteClick = { habit -> deleteHabit(habit) },
-            onShareClick = { habit -> shareHabitProgress(habit) }
+            onDeleteClick = { habit -> deleteHabit(habit) }
         )
         
         // Use different layout managers based on screen size

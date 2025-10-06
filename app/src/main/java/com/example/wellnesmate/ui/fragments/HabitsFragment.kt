@@ -39,6 +39,7 @@ class HabitsFragment : Fragment() {
     private lateinit var tvProgressPercent: TextView
     private lateinit var layoutEmptyState: View
     private lateinit var tvHabitCount: TextView  // Add this line
+    private lateinit var cardNewHabit: com.google.android.material.card.MaterialCardView
     private lateinit var prefsManager: SharedPreferencesManager
     private lateinit var habitsAdapter: HabitsAdapter
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -80,6 +81,7 @@ class HabitsFragment : Fragment() {
         tvProgressPercent = view.findViewById(R.id.tv_progress_percent)
         layoutEmptyState = view.findViewById(R.id.layout_empty_state)
         tvHabitCount = view.findViewById(R.id.tv_habit_count)  // Add this line
+        cardNewHabit = view.findViewById(R.id.card_new_habit)
     }
     
     private fun setupRecyclerView() {
@@ -106,6 +108,10 @@ class HabitsFragment : Fragment() {
     
     private fun setupClickListeners() {
         fabAddHabit.setOnClickListener {
+            addNewHabit()
+        }
+        
+        cardNewHabit.setOnClickListener {
             addNewHabit()
         }
     }

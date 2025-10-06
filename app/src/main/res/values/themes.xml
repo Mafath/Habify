@@ -86,6 +86,8 @@
     </style>
 
     <style name="Theme.Habify" parent="Base.Theme.Habify" />
+
+    <!-- Text appearance override for gradient title on splash (kept simple via drawable on TextView) -->
     
     <!-- Shape Appearances -->
     <style name="ShapeAppearance.WellnesMate.Small" parent="ShapeAppearance.Material3.SmallComponent">

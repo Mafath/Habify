@@ -13,77 +13,145 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Header Section -->
-        <com.google.android.material.appbar.AppBarLayout
+        <!-- App name top-left on light background -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
-            app:elevation="0dp">
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_large"
+            android:gravity="center_vertical">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:paddingStart="@dimen/spacing_large"
-                android:paddingEnd="@dimen/spacing_large"
-                app:title="@string/habits_title"
-                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-                app:titleTextColor="@color/text_primary" />
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Menu"
+                app:tint="@color/primary" />
 
-        </com.google.android.material.appbar.AppBarLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/primary"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-        <!-- Progress Summary Card -->
-        <com.google.android.material.card.MaterialCardView
+        </LinearLayout>
+
+        <!-- Hero Header -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_large"
-            android:layout_marginTop="@dimen/spacing_large"
-            android:layout_marginBottom="@dimen/spacing_medium"
-            app:cardCornerRadius="@dimen/card_corner_radius_large"
-            app:cardElevation="@dimen/card_elevation_medium"
-            app:cardBackgroundColor="@color/card_habit"
-            app:strokeWidth="0dp">
+            android:layout_height="280dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_large">
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_large"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/today_progress"
+                    android:text="Daily Habits"
                     android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_headline_small"
+                    android:textSize="32sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_progress_summary"
+                    android:id="@+id/tv_today_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
-                    android:text="0 of 0 habits completed"
                     android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/text_size_body_medium"
-                    tools:text="3 of 5 habits completed" />
-
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/progress_bar_daily"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
-                    android:progress="60"
-                    app:trackCornerRadius="4dp"
-                    app:trackThickness="8dp"
-                    app:indicatorColor="@color/progress_complete"
-                    app:trackColor="@color/progress_incomplete" />
+                    android:textSize="@dimen/text_size_body_large"
+                    tools:text="Monday, October 6" />
 
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+            <!-- Circular progress with overlay text -->
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/spacing_large">
 
-        <!-- Habits List Header -->
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progress_circular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:indicatorSize="12dp"
+                    app:trackThickness="12dp"
+                    app:indicatorDirectionCircular="clockwise"
+                    app:indicatorInset="0dp"
+                    app:indicatorColor="@color/primary"
+                    app:trackColor="@color/progress_incomplete"
+                    android:progress="0"
+                    app:showAnimationBehavior="inward" />
+
+                <TextView
+                    android:id="@+id/tv_progress_percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:textSize="24sp" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Filter chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_filters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_large"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    android:checked="true"
+                    style="@style/Widget.Material3.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Completed"
+                    style="@style/Widget.Material3.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pending"
+                    style="@style/Widget.Material3.Chip.Filter" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <!-- Section header under hero -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +165,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Your Habits"
+                android:text="Your habits"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_small"
                 android:textStyle="bold" />
@@ -106,10 +174,10 @@
                 android:id="@+id/tv_habit_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 habits"
+                android:text="0"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium"
-                tools:text="5 habits" />
+                tools:text="5" />
 
         </LinearLayout>
 
@@ -119,8 +187,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:paddingTop="@dimen/spacing_small"
-            android:paddingBottom="80dp"
+            android:paddingTop="@dimen/spacing_medium"
+            android:paddingBottom="96dp"
             tools:listitem="@layout/item_habit" />
 
         <!-- Empty State -->
@@ -131,7 +199,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_huge"
+            android:padding="@dimen/spacing_large"
             android:visibility="gone"
             tools:visibility="visible">
 
@@ -165,9 +233,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:gravity="center"
-                android:text="Start building healthy habits by tapping the + button"
+                android:text="Start building healthy habits"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_empty_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Add Habit"
+                android:textAllCaps="false"
+                android:textColor="@color/on_primary"
+                app:icon="@drawable/ic_add"
+                app:iconTint="@color/on_primary"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
         </LinearLayout>
 
@@ -186,6 +267,7 @@
         app:backgroundTint="@color/primary"
         app:icon="@drawable/ic_add"
         app:iconTint="@color/on_primary"
-        app:elevation="@dimen/card_elevation_large" />
+        app:elevation="8dp"
+        app:borderWidth="0dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -65,6 +65,8 @@
     
     <!-- Accent Colors -->
     <color name="accent_blue">#FF29B6F6</color>
+    <color name="gradient_start">#FF42A5F5</color>
+    <color name="gradient_end">#FF7E57C2</color>
     <color name="accent_green">#FF66BB6A</color>
     <color name="accent_purple">#FFAB47BC</color>
     <color name="accent_orange">#FFFFA726</color>

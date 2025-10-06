@@ -38,7 +38,7 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:text="@string/app_name"
                 android:textColor="@color/primary"
-                android:textSize="32sp"
+                android:textSize="48sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -52,97 +52,105 @@
         </LinearLayout>
 
         <!-- Login Form -->
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_huge"
-            app:cardCornerRadius="@dimen/card_corner_radius_large"
-            app:cardElevation="@dimen/card_elevation_medium"
-            app:cardBackgroundColor="@color/surface"
-            app:strokeWidth="0dp">
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large">
 
-            <LinearLayout
+            <!-- Email Label -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_large">
+                android:text="Email address"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small"
+                android:layout_marginBottom="@dimen/spacing_extra_small" />
 
-                <!-- Email Input -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_email"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            <!-- Email Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_medium"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
-                    app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_medium"
-                    app:startIconDrawable="@drawable/ic_email"
-                    app:startIconTint="@color/text_secondary">
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/text_size_body_medium" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        android:textSize="@dimen/text_size_body_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <!-- Password Label -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="Password"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small" />
 
-                <!-- Password Input -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_password"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            <!-- Password Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
+                app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_medium"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
-                    android:hint="Password"
-                    app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
-                    app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_medium"
-                    app:endIconMode="password_toggle"
-                    app:startIconDrawable="@drawable/ic_lock"
-                    app:startIconTint="@color/text_secondary">
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/text_size_body_medium" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:textSize="@dimen/text_size_body_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <!-- Forgot Password -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:padding="@dimen/spacing_extra_small"
+                android:text="Forgot Password?"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_size_body_small"
+                android:visibility="gone" />
 
-                <!-- Forgot Password -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/spacing_small"
-                    android:padding="@dimen/spacing_extra_small"
-                    android:text="Forgot Password?"
-                    android:textColor="@color/primary"
-                    android:textSize="@dimen/text_size_body_small"
-                    android:visibility="gone" />
+            <!-- Login Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Sign In"
+                    android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_body_large"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
-                <!-- Login Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height_large"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:text="Sign In"
-                    android:textAllCaps="false"
-                    android:textSize="@dimen/text_size_body_large"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/primary"
-                    app:cornerRadius="@dimen/button_corner_radius" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
         <!-- Sign Up Option -->
         <LinearLayout

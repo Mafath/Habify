@@ -10,6 +10,7 @@
     <!-- Primary Color (Bright Blue) -->
     <color name="primary">#FF1E88E5</color>
     <color name="primary_variant">#FF1565C0</color>
+    <color name="primary_light">#FFE3F2FD</color>
     <color name="on_primary">#FFFFFFFF</color>
     
     <!-- Secondary Color (Soft Indigo) -->

@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_habits"
-        android:icon="@drawable/ic_habits"
+        android:icon="@drawable/ic_habits_modern"
         android:title="@string/nav_habits" />
     
     <item
         android:id="@+id/nav_mood"
-        android:icon="@drawable/ic_mood"
+        android:icon="@drawable/ic_mood_modern"
         android:title="@string/nav_mood" />
     
     <item
         android:id="@+id/nav_hydration"
-        android:icon="@drawable/ic_hydration"
+        android:icon="@drawable/ic_hydration_modern"
         android:title="@string/nav_hydration" />
     
     <item
         android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/ic_settings_modern"
         android:title="@string/nav_settings" />
 </menu>

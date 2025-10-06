@@ -27,7 +27,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 app:title="@string/hydration_title"
-                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 app:titleTextColor="@color/text_primary" />
 
         </com.google.android.material.appbar.AppBarLayout>

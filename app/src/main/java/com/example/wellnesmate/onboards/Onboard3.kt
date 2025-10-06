@@ -27,5 +27,12 @@ class Onboard3 : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val skipButton = findViewById<Button>(R.id.skipButton)
+        skipButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

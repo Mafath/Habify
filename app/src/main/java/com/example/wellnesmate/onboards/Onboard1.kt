@@ -26,5 +26,12 @@ class Onboard1 : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val skipButton = findViewById<Button>(R.id.skipButton)
+        skipButton.setOnClickListener {
+            val intent = Intent(this, com.example.wellnesmate.ui.auth.LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

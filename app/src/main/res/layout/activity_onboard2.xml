@@ -31,10 +31,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="283dp"
+        android:layout_height="177dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
@@ -55,7 +55,7 @@
         android:gravity="center"
         android:text="@string/onboard2_headline"
         android:textColor="@color/primary"
-        android:textSize="22sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,16 +64,16 @@
 
     <TextView
         android:id="@+id/tv_subtext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="317dp"
+        android:layout_height="38dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="@string/onboard2_subtext"
         android:textColor="@color/text_secondary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_headline"
         app:layout_constraintVertical_bias="0.0" />

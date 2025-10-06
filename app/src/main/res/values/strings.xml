@@ -139,7 +139,7 @@
     <string name="onboard1_headline">Calm Your Mind</string>
     <string name="onboard1_subtext">Practice yoga or meditate daily to reduce stress, improve focus, and nurture mental wellness.</string>
     <string name="onboard2_headline">Capture Your Emotions</string>
-    <string name="onboard2_subtext">Log your moods with emojis and notes. See patterns over time and understand your emotional journey.</string>
+    <string name="onboard2_subtext">Record moods with emojis and notes, see daily emotional patterns.</string>
     <string name="onboard3_headline">Stay Hydrated</string>
     <string name="onboard3_subtext">Get smart reminders to drink water and maintain a healthy routine every day.</string>
 </resources>

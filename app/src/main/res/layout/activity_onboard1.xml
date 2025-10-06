@@ -12,10 +12,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="294dp"
+        android:layout_height="186dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="290dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_headline"
         app:layout_constraintDimensionRatio="H,3:2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6"
@@ -37,7 +37,7 @@
         android:gravity="center"
         android:text="@string/onboard1_headline"
         android:textColor="@color/primary"
-        android:textSize="22sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,19 +47,19 @@
 
     <TextView
         android:id="@+id/tv_subtext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="@string/onboard1_subtext"
         android:textColor="@color/text_secondary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_headline"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextButton"

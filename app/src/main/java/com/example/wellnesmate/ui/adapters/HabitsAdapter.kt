@@ -85,16 +85,22 @@ class HabitsAdapter(
             val streak = prefsManager.calculateHabitStreak(habit.id)
             tvStreak.text = itemView.context.getString(R.string.habit_streak, streak)
 
-            // Completion button
+            // Completion button with smooth color inversion
             if (progress.isCompleted) {
                 btnToggleCompletion.text = itemView.context.getString(R.string.mark_incomplete)
-                btnToggleCompletion.setBackgroundColor(
-                    itemView.context.getColor(R.color.success_green)
+                // Animate to completed state: blue background, white text
+                animateButtonColors(
+                    btnToggleCompletion,
+                    itemView.context.getColor(R.color.progress_complete),
+                    itemView.context.getColor(R.color.white)
                 )
             } else {
                 btnToggleCompletion.text = itemView.context.getString(R.string.mark_complete)
-                btnToggleCompletion.setBackgroundColor(
-                    itemView.context.getColor(R.color.primary_green_light)
+                // Animate to incomplete state: white background, blue text
+                animateButtonColors(
+                    btnToggleCompletion,
+                    itemView.context.getColor(R.color.white),
+                    itemView.context.getColor(R.color.progress_complete)
                 )
             }
 
@@ -106,11 +112,40 @@ class HabitsAdapter(
             
             // Update progress bar color based on completion
             val progressColor = if (progress.isCompleted) {
-                itemView.context.getColor(R.color.success_green)
+                itemView.context.getColor(R.color.progress_complete)
             } else {
-                itemView.context.getColor(R.color.primary_green)
+                itemView.context.getColor(R.color.progress_incomplete)
             }
             progressBar.progressTintList = android.content.res.ColorStateList.valueOf(progressColor)
+        }
+        
+        private fun animateButtonColors(button: MaterialButton, backgroundColor: Int, textColor: Int) {
+            // Create color state list for background
+            val backgroundStateList = android.content.res.ColorStateList.valueOf(backgroundColor)
+            
+            // Animate background color
+            val backgroundAnimator = android.animation.ValueAnimator.ofArgb(
+                button.backgroundTintList?.defaultColor ?: android.graphics.Color.TRANSPARENT,
+                backgroundColor
+            )
+            backgroundAnimator.duration = 300
+            backgroundAnimator.addUpdateListener { animator ->
+                button.backgroundTintList = android.content.res.ColorStateList.valueOf(animator.animatedValue as Int)
+            }
+            
+            // Animate text color
+            val textAnimator = android.animation.ValueAnimator.ofArgb(
+                button.currentTextColor,
+                textColor
+            )
+            textAnimator.duration = 300
+            textAnimator.addUpdateListener { animator ->
+                button.setTextColor(animator.animatedValue as Int)
+            }
+            
+            // Start animations together
+            backgroundAnimator.start()
+            textAnimator.start()
         }
     }
 }

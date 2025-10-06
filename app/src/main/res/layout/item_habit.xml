@@ -7,9 +7,11 @@
     android:layout_marginHorizontal="@dimen/spacing_large"
     android:layout_marginVertical="@dimen/spacing_small"
     app:cardCornerRadius="@dimen/card_corner_radius_large"
-    app:cardElevation="@dimen/card_elevation_medium"
+    app:cardElevation="8dp"
     app:cardBackgroundColor="@color/card_habit"
-    app:strokeWidth="0dp">
+    app:strokeWidth="0dp"
+    android:outlineProvider="bounds"
+    android:stateListAnimator="@null">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -148,9 +150,11 @@
                 android:text="@string/mark_complete"
                 android:textSize="@dimen/text_size_label_medium"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/progress_complete"
+                android:textColor="@color/progress_complete"
+                android:backgroundTint="@color/white"
                 app:cornerRadius="@dimen/button_corner_radius"
+                app:strokeColor="@color/progress_complete"
+                app:strokeWidth="1dp"
                 tools:text="Mark Complete" />
 
         </LinearLayout>

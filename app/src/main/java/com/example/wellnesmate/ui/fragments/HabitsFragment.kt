@@ -34,7 +34,9 @@ class HabitsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fabAddHabit: ExtendedFloatingActionButton
     private lateinit var tvProgressSummary: TextView
-    private lateinit var progressBarDaily: ProgressBar
+    private lateinit var progressCircular: com.google.android.material.progressindicator.CircularProgressIndicator
+    private lateinit var tvProgressCount: TextView
+    private lateinit var tvProgressPercent: TextView
     private lateinit var layoutEmptyState: View
     private lateinit var tvHabitCount: TextView  // Add this line
     private lateinit var prefsManager: SharedPreferencesManager
@@ -73,7 +75,9 @@ class HabitsFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recycler_habits)
         fabAddHabit = view.findViewById(R.id.fab_add_habit)
         tvProgressSummary = view.findViewById(R.id.tv_progress_summary)
-        progressBarDaily = view.findViewById(R.id.progress_bar_daily)
+        progressCircular = view.findViewById(R.id.progress_circular)
+        tvProgressCount = view.findViewById(R.id.tv_progress_count)
+        tvProgressPercent = view.findViewById(R.id.tv_progress_percent)
         layoutEmptyState = view.findViewById(R.id.layout_empty_state)
         tvHabitCount = view.findViewById(R.id.tv_habit_count)  // Add this line
     }
@@ -117,8 +121,10 @@ class HabitsFragment : Fragment() {
             // Show empty state
             recyclerView.visibility = View.GONE
             layoutEmptyState.visibility = View.VISIBLE
-            tvProgressSummary.text = "0 of 0 habits completed (0%)"
-            progressBarDaily.progress = 0
+            tvProgressSummary.text = "0 habits completed (0%)"
+            tvProgressCount.text = "0 of 0"
+            tvProgressPercent.text = "0%"
+            progressCircular.progress = 0
             return
         }
         
@@ -142,8 +148,10 @@ class HabitsFragment : Fragment() {
             0
         }
         
-        tvProgressSummary.text = "$completedCount of $totalCount habits completed ($progressPercentage%)"
-        progressBarDaily.progress = progressPercentage
+        tvProgressSummary.text = "$completedCount habits completed ($progressPercentage%)"
+        tvProgressCount.text = "$completedCount of $totalCount"
+        tvProgressPercent.text = "$progressPercentage%"
+        progressCircular.progress = progressPercentage
         
         habitsAdapter.updateHabits(habitsWithProgress)
     }

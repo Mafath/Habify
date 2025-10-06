@@ -8,7 +8,7 @@
     android:layout_marginVertical="@dimen/spacing_small"
     app:cardCornerRadius="@dimen/card_corner_radius_large"
     app:cardElevation="@dimen/card_elevation_medium"
-    app:cardBackgroundColor="@color/surface"
+    app:cardBackgroundColor="@color/card_habit"
     app:strokeWidth="0dp">
 
     <LinearLayout
@@ -141,18 +141,17 @@
             <!-- Completion Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_toggle_completion"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/button_height_small"
                 android:layout_marginStart="@dimen/spacing_medium"
                 android:text="@string/mark_complete"
                 android:textSize="@dimen/text_size_label_medium"
                 android:textAllCaps="false"
-                android:textColor="@color/primary"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/progress_complete"
                 app:cornerRadius="@dimen/button_corner_radius"
-                app:strokeColor="@color/primary"
-                app:strokeWidth="1dp"
-                tools:text="Complete" />
+                tools:text="Mark Complete" />
 
         </LinearLayout>
 

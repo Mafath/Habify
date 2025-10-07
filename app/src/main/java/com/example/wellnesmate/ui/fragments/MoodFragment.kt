@@ -35,15 +35,12 @@ import kotlin.collections.HashMap
 class MoodFragment : Fragment() {
     
     private lateinit var recyclerMoodSelector: RecyclerView
-    private lateinit var recyclerMoodHistory: RecyclerView
     private lateinit var btnSaveMood: MaterialButton
     private lateinit var btnShareMood: MaterialButton
-    private lateinit var tabLayoutMoodView: TabLayout
     private lateinit var layoutMoodCalendar: View
     
     private lateinit var prefsManager: SharedPreferencesManager
     private lateinit var moodSelectorAdapter: MoodSelectorAdapter
-    private lateinit var moodHistoryAdapter: MoodHistoryAdapter
  
     
     private var selectedMood: MoodType? = null
@@ -62,13 +59,10 @@ class MoodFragment : Fragment() {
         // Initialize components
         initializeViews(view)
         setupMoodSelector()
-        setupMoodHistory()
         setupClickListeners()
         loadMoodHistory()
 
-        // Keep only calendar view visible; hide list and tabs
-        tabLayoutMoodView.visibility = View.GONE
-        recyclerMoodHistory.visibility = View.GONE
+        // Keep only calendar view visible
         layoutMoodCalendar.visibility = View.VISIBLE
     }
     
@@ -80,10 +74,8 @@ class MoodFragment : Fragment() {
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
         recyclerMoodSelector = view.findViewById(R.id.recycler_mood_selector)
-        recyclerMoodHistory = view.findViewById(R.id.recycler_mood_history)
         btnSaveMood = view.findViewById(R.id.btn_save_mood)
         btnShareMood = view.findViewById(R.id.btn_share_mood)
-        tabLayoutMoodView = view.findViewById(R.id.tab_layout_mood_view)
         layoutMoodCalendar = view.findViewById(R.id.layout_mood_calendar)
     }
     
@@ -104,8 +96,7 @@ class MoodFragment : Fragment() {
     }
     
     private fun setupMoodHistory() {
-        // History list is no longer used (calendar only). Ensure it's hidden.
-        recyclerMoodHistory.visibility = View.GONE
+        // History list removed; nothing to initialize.
     }
     
     // Removed tabs: calendar is the only view

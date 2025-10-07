@@ -34,18 +34,18 @@
 
                 <ImageView
                     android:id="@+id/iv_menu"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_menu"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:contentDescription="Menu"
-                    android:layout_marginEnd="@dimen/spacing_medium" />
+                    android:src="@drawable/ic_menu" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Habify"
                     android:textColor="@color/primary"
-                    android:textSize="24sp"
+                    android:textSize="34sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -247,32 +247,20 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/spacing_huge"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:visibility="visible">
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/card_habit"
-                android:outlineProvider="bounds"
-                android:stateListAnimator="@null">
-
-                <ImageView
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:padding="@dimen/spacing_large"
-                    android:src="@drawable/ic_habits"
-                    app:tint="@color/primary" />
-
-            </com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/first_habit_removebg"
+                android:scaleType="centerInside" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="No habits yet"
+                android:text="Add your first habit"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_medium"
                 android:textStyle="bold" />
@@ -282,7 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:gravity="center"
-                android:text="Start building healthy habits by tapping the + button"
+                android:text="Build better routines, one tap away"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
 

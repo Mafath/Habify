@@ -21,6 +21,7 @@ import com.example.wellnesmate.ui.adapters.MoodSelectorAdapter
 import com.example.wellnesmate.ui.adapters.MoodHistoryAdapter
  
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
 import android.util.TypedValue
@@ -34,9 +35,6 @@ import kotlin.collections.HashMap
  */
 class MoodFragment : Fragment() {
     
-    private lateinit var recyclerMoodSelector: RecyclerView
-    private lateinit var btnSaveMood: MaterialButton
-    private lateinit var btnShareMood: MaterialButton
     private lateinit var layoutMoodCalendar: View
     
     private lateinit var prefsManager: SharedPreferencesManager
@@ -53,12 +51,37 @@ class MoodFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mood, container, false)
     }
     
+    private fun showAddMoodDialog() {
+        val dialogContent = LayoutInflater.from(requireContext())
+            .inflate(R.layout.dialog_add_mood_inline, null)
+
+        // Bind dialog recycler to same adapter configuration (5 columns, grouped order)
+        val dialogRecycler = dialogContent.findViewById<RecyclerView>(R.id.recycler_mood_selector_dialog)
+        dialogRecycler.layoutManager = GridLayoutManager(context, 4)
+        val dialogAdapter = MoodSelectorAdapter { mood ->
+            selectedMood = mood
+        }
+        dialogRecycler.adapter = dialogAdapter
+        dialogAdapter.updateMoods(MoodType.getAllMoods())
+        dialogRecycler.setHasFixedSize(true)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogContent)
+            .setPositiveButton(getString(R.string.save)) { d, _ ->
+                if (selectedMood != null) {
+                    saveMoodEntry()
+                }
+                d.dismiss()
+            }
+            .setNegativeButton(getString(R.string.cancel)) { d, _ -> d.dismiss() }
+            .show()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
         // Initialize components
         initializeViews(view)
-        setupMoodSelector()
         setupClickListeners()
         loadMoodHistory()
 
@@ -73,27 +96,9 @@ class MoodFragment : Fragment() {
     
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
-        recyclerMoodSelector = view.findViewById(R.id.recycler_mood_selector)
-        btnSaveMood = view.findViewById(R.id.btn_save_mood)
-        btnShareMood = view.findViewById(R.id.btn_share_mood)
         layoutMoodCalendar = view.findViewById(R.id.layout_mood_calendar)
     }
     
-    private fun setupMoodSelector() {
-        moodSelectorAdapter = MoodSelectorAdapter { mood ->
-            selectedMood = mood
-            updateSaveButtonState()
-        }
-        
-        recyclerMoodSelector.apply {
-            layoutManager = GridLayoutManager(context, 5) // 5 columns for emojis
-            adapter = moodSelectorAdapter
-            setHasFixedSize(true)
-        }
-        
-        // Load all available moods
-        moodSelectorAdapter.updateMoods(MoodType.getAllMoods())
-    }
     
     private fun setupMoodHistory() {
         // History list removed; nothing to initialize.
@@ -102,18 +107,12 @@ class MoodFragment : Fragment() {
     // Removed tabs: calendar is the only view
     
     private fun setupClickListeners() {
-        btnSaveMood.setOnClickListener {
-            saveMoodEntry()
-        }
-        
-        btnShareMood.setOnClickListener {
-            shareTodaysMood()
+        // Add Mood floating button opens dialog with emoji grid
+        view?.findViewById<View>(R.id.fab_add_mood)?.setOnClickListener {
+            showAddMoodDialog()
         }
     }
     
-    private fun updateSaveButtonState() {
-        btnSaveMood.isEnabled = selectedMood != null
-    }
     
     private fun saveMoodEntry() {
         val mood = selectedMood ?: return
@@ -127,10 +126,8 @@ class MoodFragment : Fragment() {
         
         prefsManager.saveMoodEntry(moodEntry)
         
-        // Reset form
+        // Reset selection
         selectedMood = null
-        moodSelectorAdapter.clearSelection()
-        updateSaveButtonState()
         
         // Refresh history
         loadMoodHistory()
@@ -146,9 +143,6 @@ class MoodFragment : Fragment() {
     private fun loadMoodHistory() {
         val moodEntries = prefsManager.getMoodEntries()
 
-        // Update share button state
-        val todayEntries = prefsManager.getTodayMoodEntries()
-        btnShareMood.isEnabled = todayEntries.isNotEmpty()
 
         // Always update calendar view only
         generateCalendarView()

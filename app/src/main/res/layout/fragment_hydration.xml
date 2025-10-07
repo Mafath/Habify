@@ -234,15 +234,33 @@
                                 android:textColor="@color/text_secondary"
                                 android:textSize="@dimen/text_size_body_medium" />
 
-                            <TextView
-                                android:id="@+id/tv_daily_goal"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_small"
-                                android:textColor="@color/text_primary"
-                                android:textSize="@dimen/text_size_display_small"
-                                android:textStyle="bold"
-                                tools:text="2000 ml" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_daily_goal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="@dimen/text_size_display_small"
+                                    android:textStyle="bold"
+                                    tools:text="2000 ml" />
+
+                                <ImageButton
+                                    android:id="@+id/btn_edit_daily_goal"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginStart="@dimen/spacing_small"
+                                    android:background="@drawable/circle_background_gray"
+                                    android:contentDescription="Edit daily goal"
+                                    android:src="@drawable/ic_edit"
+                                    app:tint="@color/text_secondary" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 

@@ -39,6 +39,8 @@ import com.example.wellnesmate.ui.adapters.HydrationHistoryAdapter
 import com.example.wellnesmate.workers.HydrationReminderWorker
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import android.widget.ImageButton
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -52,8 +54,13 @@ class HydrationFragment : Fragment() {
     private lateinit var tvCurrentIntake: TextView
     private lateinit var tvProgressText: TextView
     private lateinit var progressBarHydration: ProgressBar
+    private lateinit var progressCircularHydration: com.google.android.material.progressindicator.CircularProgressIndicator
+    private lateinit var tvHydrationCount: TextView
+    private lateinit var tvHydrationPercent: TextView
+    private lateinit var tvHydrationSummary: TextView
     private lateinit var btnAddWater: MaterialButton
     private lateinit var btnSetReminder: MaterialButton
+    private lateinit var btnEditDailyGoal: ImageButton
     private lateinit var recyclerHydrationHistory: RecyclerView
     
     private lateinit var prefsManager: SharedPreferencesManager
@@ -89,8 +96,13 @@ class HydrationFragment : Fragment() {
         tvCurrentIntake = view.findViewById(R.id.tv_current_intake)
         tvProgressText = view.findViewById(R.id.tv_progress_text)
         progressBarHydration = view.findViewById(R.id.progress_bar_hydration)
+        progressCircularHydration = view.findViewById(R.id.progress_circular_hydration)
+        tvHydrationCount = view.findViewById(R.id.tv_hydration_count)
+        tvHydrationPercent = view.findViewById(R.id.tv_hydration_percent)
+        tvHydrationSummary = view.findViewById(R.id.tv_hydration_summary)
         btnAddWater = view.findViewById(R.id.btn_add_water)
         btnSetReminder = view.findViewById(R.id.btn_set_reminder)
+        btnEditDailyGoal = view.findViewById(R.id.btn_edit_daily_goal)
         recyclerHydrationHistory = view.findViewById(R.id.recycler_hydration_history)
     }
     
@@ -112,6 +124,10 @@ class HydrationFragment : Fragment() {
         btnSetReminder.setOnClickListener {
             showReminderSettingsDialog()
         }
+        
+        btnEditDailyGoal.setOnClickListener {
+            showEditDailyGoalDialog()
+        }
     }
     
     private fun updateHydrationDisplay() {
@@ -132,6 +148,12 @@ class HydrationFragment : Fragment() {
         
         progressBarHydration.progress = progressPercentage
         tvProgressText.text = "$progressPercentage% of daily goal"
+        
+        // Update circular progress section
+        progressCircularHydration.progress = progressPercentage
+        tvHydrationCount.text = "$todayIntake of ${settings.dailyGoalMl}"
+        tvHydrationPercent.text = "$progressPercentage%"
+        tvHydrationSummary.text = "$todayIntake ml consumed ($progressPercentage%)"
         
         // Update history
         val allIntakes = prefsManager.getHydrationIntake().take(10) // Show last 10 entries
@@ -299,6 +321,60 @@ class HydrationFragment : Fragment() {
                 requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun showEditDailyGoalDialog() {
+        val dialogView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.dialog_edit_daily_goal, null)
+        
+        val etDailyGoal = dialogView.findViewById<TextInputEditText>(R.id.et_daily_goal)
+        val currentSettings = prefsManager.getHydrationSettings()
+        
+        // Set current goal value
+        etDailyGoal.setText(currentSettings.dailyGoalMl.toString())
+        
+        MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogView)
+            .setPositiveButton(getString(R.string.save)) { _, _ ->
+                val goalText = etDailyGoal.text?.toString()
+                
+                if (!goalText.isNullOrBlank()) {
+                    try {
+                        val newGoal = goalText.toInt()
+                        if (newGoal > 0) {
+                            val newSettings = currentSettings.copy(dailyGoalMl = newGoal)
+                            prefsManager.saveHydrationSettings(newSettings)
+                            updateHydrationDisplay()
+                            
+                            android.widget.Toast.makeText(
+                                requireContext(),
+                                "Daily goal updated to ${newGoal}ml",
+                                android.widget.Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            android.widget.Toast.makeText(
+                                requireContext(),
+                                "Please enter a valid goal amount",
+                                android.widget.Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } catch (e: NumberFormatException) {
+                        android.widget.Toast.makeText(
+                            requireContext(),
+                            "Please enter a valid number",
+                            android.widget.Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    android.widget.Toast.makeText(
+                        requireContext(),
+                        "Please enter a goal amount",
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
     }
 
     private fun showReminderSettingsDialog() {

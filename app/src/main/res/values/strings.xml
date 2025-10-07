@@ -25,9 +25,9 @@
 
     <!-- Mood Journal -->
     <string name="mood_title">Mood Journal</string>
-    <string name="log_mood">Log Your Mood</string>
+    <string name="log_mood">Track Your Mood</string>
     <string name="mood_entry">Mood Entry</string>
-    <string name="select_mood">Select your mood</string>
+    <string name="select_mood">Select your current mood</string>
     <string name="mood_notes">Add notes (optional)</string>
     <string name="save_mood">Save Mood</string>
     <string name="mood_history">Mood History</string>

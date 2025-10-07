@@ -252,11 +252,11 @@ class SharedPreferencesManager(context: Context) {
             val id = sharedPrefs.getString("${entryPrefix}_id", "") ?: ""
             
             if (id.isNotEmpty()) {
-                val moodTypeName = sharedPrefs.getString("${entryPrefix}_moodType", MoodType.NEUTRAL.name) ?: MoodType.NEUTRAL.name
+                val moodTypeName = sharedPrefs.getString("${entryPrefix}_moodType", MoodType.RELAXED.name) ?: MoodType.RELAXED.name
                 val moodType = try {
                     MoodType.valueOf(moodTypeName)
                 } catch (e: Exception) {
-                    MoodType.NEUTRAL
+                    MoodType.RELAXED
                 }
                 val emoji = sharedPrefs.getString("${entryPrefix}_emoji", moodType.emoji) ?: moodType.emoji
                 val notes = sharedPrefs.getString("${entryPrefix}_notes", "") ?: ""

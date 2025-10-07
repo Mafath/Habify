@@ -19,28 +19,46 @@ data class MoodEntry(
  * Enum representing different mood types
  */
 enum class MoodType(val value: Int, val label: String, val emoji: String) {
-    VERY_HAPPY(5, "Very Happy", "😄"),
-    HAPPY(4, "Happy", "😊"),
-    NEUTRAL(3, "Neutral", "😐"),
-    SAD(2, "Sad", "😢"),
-    VERY_SAD(1, "Very Sad", "😭"),
-    ANGRY(2, "Angry", "😠"),
-    EXCITED(5, "Excited", "🤩"),
-    CALM(4, "Calm", "😌"),
-    ANXIOUS(2, "Anxious", "😰"),
-    TIRED(2, "Tired", "😴");
+    // Positive / Happy
+    HAPPY(5, "Happy", "😀"),
+    ENERGETIC(5, "Energetic", "😁"),
+    CONFIDENT(5, "Confident", "😎"),
+    RELAXED(4, "Relaxed", "😌"),
+    PEACEFUL(4, "Peaceful", "😇"),
+
+    // Neutral / Mixed
+    RELIEVED(3, "Relieved", "😐"),
+    THINKING(3, "Thinking", "🤔"),
+    TIRED(3, "Tired", "😴"),
+    NERVOUS(3, "Nervous", "😬"),
+    CONFUSED(3, "Confused", "😕"),
+
+    // Negative / Sad
+    SAD(2, "Sad", "😞"),
+    ANNOYED(2, "Annoyed", "😤"),
+    EXHAUSTED(1, "Exhausted", "😩"),
+    ANGRY(1, "Angry", "😡"),
+    HEARTBROKEN(1, "Heartbroken", "😭");
 
     companion object {
         fun fromValue(value: Int): MoodType {
-            return values().find { it.value == value } ?: NEUTRAL
+            return values().find { it.value == value } ?: RELAXED
         }
         
         fun fromLabel(label: String): MoodType {
-            return values().find { it.label == label } ?: NEUTRAL
+            return values().find { it.label == label } ?: RELAXED
         }
         
         fun getAllMoods(): List<MoodType> {
-            return listOf(VERY_HAPPY, HAPPY, EXCITED, CALM, NEUTRAL, TIRED, ANXIOUS, SAD, ANGRY, VERY_SAD)
+            // Ordered as 3 rows of 5 (Positive, Neutral, Negative)
+            return listOf(
+                // Row 1: Positive / Happy
+                HAPPY, ENERGETIC, CONFIDENT, RELAXED, PEACEFUL,
+                // Row 2: Neutral / Mixed
+                RELIEVED, THINKING, TIRED, NERVOUS, CONFUSED,
+                // Row 3: Negative / Sad
+                SAD, ANNOYED, EXHAUSTED, ANGRY, HEARTBROKEN
+            )
         }
     }
 }
@@ -50,7 +68,7 @@ enum class MoodType(val value: Int, val label: String, val emoji: String) {
  */
 data class MoodStats(
     val averageMood: Float = 0f,
-    val mostFrequentMood: MoodType = MoodType.NEUTRAL,
+    val mostFrequentMood: MoodType = MoodType.RELAXED,
     val totalEntries: Int = 0,
     val moodCounts: Map<MoodType, Int> = emptyMap(),
     val weeklyTrend: List<Float> = emptyList() // Average mood for each day of the week

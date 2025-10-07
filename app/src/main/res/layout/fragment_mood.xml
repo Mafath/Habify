@@ -1,36 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    android:fillViewport="true"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header Section -->
-        <com.google.android.material.appbar.AppBarLayout
+        <!-- Header Section (match Habits page style) -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/surface"
-            app:elevation="0dp">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
+            <!-- Top Row: Hamburger + App Name -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
-                app:title="@string/mood_title"
-                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-                app:titleTextColor="@color/text_primary" />
+                android:paddingBottom="@dimen/spacing_small"
+                android:gravity="center_vertical">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                <ImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:contentDescription="Menu"
+                    android:src="@drawable/ic_menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Habify"
+                    android:textColor="@color/primary"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+                
+
+            </LinearLayout>
+
+            <!-- Title Row: Centered "Mood Journal" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mood_title"
+                android:textAlignment="center"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_headline_medium"
+                android:textStyle="bold"
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingEnd="@dimen/spacing_large" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +76,7 @@
             android:padding="@dimen/spacing_large"
             android:focusableInTouchMode="true">
 
-            <!-- Log Mood Section -->
+            <!-- Mood Calendar Section (moved to top) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,152 +94,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_large">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/log_mood"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
-                        android:text="@string/select_mood"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/text_size_body_medium" />
-
-                    <!-- Mood Selector Grid -->
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_mood_selector"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:nestedScrollingEnabled="false"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/item_mood_selector" />
-
-                    <!-- Action Buttons -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_large"
-                        android:orientation="horizontal"
-                        android:gravity="end">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_share_mood"
-                            style="@style/Widget.Material3.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/button_height_small"
-                            android:layout_marginEnd="@dimen/spacing_small"
-                            android:text="Share Today"
-                            android:textSize="@dimen/text_size_body_medium"
-                            android:textAllCaps="false"
-                            android:enabled="false"
-                            app:strokeColor="@color/primary"
-                            app:cornerRadius="@dimen/button_corner_radius" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_save_mood"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/button_height_small"
-                            android:text="@string/save_mood"
-                            android:textSize="@dimen/text_size_body_medium"
-                            android:textAllCaps="false"
-                            android:enabled="false"
-                            app:backgroundTint="@color/primary"
-                            app:cornerRadius="@dimen/button_corner_radius" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Mood History Section -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/card_mood"
-                android:outlineProvider="bounds"
-                android:stateListAnimator="@null"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mood_trend"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
-                        android:textStyle="bold" />
-
-                    <com.github.mikephil.charting.charts.LineChart
-                        android:id="@+id/chart_mood_trend"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:layout_weight="1"
-                        android:nestedScrollingEnabled="true" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-            
-            <!-- Mood History Section with Tabs -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/card_mood"
-                android:outlineProvider="bounds"
-                android:stateListAnimator="@null"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mood_history"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
-                        android:textStyle="bold" />
-
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tab_layout_mood_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        app:tabTextColor="@color/text_secondary"
-                        app:tabSelectedTextColor="@color/primary"
-                        app:tabIndicatorColor="@color/primary"
-                        app:tabIndicatorHeight="3dp"
-                        app:tabTextAppearance="@style/TextAppearance.Material3.BodyMedium" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_mood_history"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:nestedScrollingEnabled="false"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_mood_history" />
+                    
 
                     <!-- Calendar View -->
                     <ScrollView
@@ -210,10 +102,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:visibility="gone"
-                        tools:visibility="gone" />
+                        android:visibility="visible"
+                        tools:visibility="visible" />
 
-                    <!-- Empty State -->
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            
+            <!-- Empty State -->
                     <LinearLayout
                         android:id="@+id/layout_empty_mood_history"
                         android:layout_width="match_parent"
@@ -262,10 +160,21 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
-
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.core.widget.NestedScrollView>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_add_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:text="Add Mood+"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_add"
+        app:backgroundTint="@color/primary"
+        app:iconTint="@color/on_primary"
+        android:textColor="@color/on_primary" />
+
+</FrameLayout>

@@ -19,11 +19,13 @@ import com.example.wellnesmate.data.models.MoodType
 import com.example.wellnesmate.data.repository.SharedPreferencesManager
 import com.example.wellnesmate.ui.adapters.MoodSelectorAdapter
 import com.example.wellnesmate.ui.adapters.MoodHistoryAdapter
-import com.example.wellnesmate.ui.charts.MoodChartHelper
-import com.github.mikephil.charting.charts.LineChart
+ 
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
+import android.util.TypedValue
+import kotlin.math.roundToInt
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -33,18 +35,11 @@ import kotlin.collections.HashMap
  */
 class MoodFragment : Fragment() {
     
-    private lateinit var recyclerMoodSelector: RecyclerView
-    private lateinit var recyclerMoodHistory: RecyclerView
-    private lateinit var btnSaveMood: MaterialButton
-    private lateinit var btnShareMood: MaterialButton
-    private lateinit var chartMoodTrend: LineChart
-    private lateinit var tabLayoutMoodView: TabLayout
     private lateinit var layoutMoodCalendar: View
     
     private lateinit var prefsManager: SharedPreferencesManager
     private lateinit var moodSelectorAdapter: MoodSelectorAdapter
-    private lateinit var moodHistoryAdapter: MoodHistoryAdapter
-    private lateinit var moodChartHelper: MoodChartHelper
+ 
     
     private var selectedMood: MoodType? = null
     
@@ -56,16 +51,42 @@ class MoodFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mood, container, false)
     }
     
+    private fun showAddMoodDialog() {
+        val dialogContent = LayoutInflater.from(requireContext())
+            .inflate(R.layout.dialog_add_mood_inline, null)
+
+        // Bind dialog recycler to same adapter configuration (5 columns, grouped order)
+        val dialogRecycler = dialogContent.findViewById<RecyclerView>(R.id.recycler_mood_selector_dialog)
+        dialogRecycler.layoutManager = GridLayoutManager(context, 4)
+        val dialogAdapter = MoodSelectorAdapter { mood ->
+            selectedMood = mood
+        }
+        dialogRecycler.adapter = dialogAdapter
+        dialogAdapter.updateMoods(MoodType.getAllMoods())
+        dialogRecycler.setHasFixedSize(true)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogContent)
+            .setPositiveButton(getString(R.string.save)) { d, _ ->
+                if (selectedMood != null) {
+                    saveMoodEntry()
+                }
+                d.dismiss()
+            }
+            .setNegativeButton(getString(R.string.cancel)) { d, _ -> d.dismiss() }
+            .show()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
         // Initialize components
         initializeViews(view)
-        setupMoodSelector()
-        setupMoodHistory()
-        setupMoodViewTabs()
         setupClickListeners()
         loadMoodHistory()
+
+        // Keep only calendar view visible
+        layoutMoodCalendar.visibility = View.VISIBLE
     }
     
     override fun onResume() {
@@ -75,80 +96,23 @@ class MoodFragment : Fragment() {
     
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
-        moodChartHelper = MoodChartHelper(requireContext())
-        recyclerMoodSelector = view.findViewById(R.id.recycler_mood_selector)
-        recyclerMoodHistory = view.findViewById(R.id.recycler_mood_history)
-        btnSaveMood = view.findViewById(R.id.btn_save_mood)
-        btnShareMood = view.findViewById(R.id.btn_share_mood)
-        chartMoodTrend = view.findViewById(R.id.chart_mood_trend)
-        tabLayoutMoodView = view.findViewById(R.id.tab_layout_mood_view)
         layoutMoodCalendar = view.findViewById(R.id.layout_mood_calendar)
     }
     
-    private fun setupMoodSelector() {
-        moodSelectorAdapter = MoodSelectorAdapter { mood ->
-            selectedMood = mood
-            updateSaveButtonState()
-        }
-        
-        recyclerMoodSelector.apply {
-            layoutManager = GridLayoutManager(context, 5) // 5 columns for emojis
-            adapter = moodSelectorAdapter
-            setHasFixedSize(true)
-        }
-        
-        // Load all available moods
-        moodSelectorAdapter.updateMoods(MoodType.getAllMoods())
-    }
     
     private fun setupMoodHistory() {
-        moodHistoryAdapter = MoodHistoryAdapter(
-            onDeleteClick = { entry -> deleteMoodEntry(entry) },
-            onShareClick = { entry -> shareMoodEntry(entry) }
-        )
-        
-        recyclerMoodHistory.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = moodHistoryAdapter
-            setHasFixedSize(true)
-        }
+        // History list removed; nothing to initialize.
     }
     
-    private fun setupMoodViewTabs() {
-        // Add tabs for List and Calendar views
-        val listTab = tabLayoutMoodView.newTab().setText("List")
-        val calendarTab = tabLayoutMoodView.newTab().setText("Calendar")
-        tabLayoutMoodView.addTab(listTab)
-        tabLayoutMoodView.addTab(calendarTab)
-        
-        // Set up tab listener
-        tabLayoutMoodView.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.position) {
-                    0 -> showListView()
-                    1 -> showCalendarView()
-                }
-            }
-            
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-            
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-        })
-    }
+    // Removed tabs: calendar is the only view
     
     private fun setupClickListeners() {
-        btnSaveMood.setOnClickListener {
-            saveMoodEntry()
-        }
-        
-        btnShareMood.setOnClickListener {
-            shareTodaysMood()
+        // Add Mood floating button opens dialog with emoji grid
+        view?.findViewById<View>(R.id.fab_add_mood)?.setOnClickListener {
+            showAddMoodDialog()
         }
     }
     
-    private fun updateSaveButtonState() {
-        btnSaveMood.isEnabled = selectedMood != null
-    }
     
     private fun saveMoodEntry() {
         val mood = selectedMood ?: return
@@ -162,10 +126,8 @@ class MoodFragment : Fragment() {
         
         prefsManager.saveMoodEntry(moodEntry)
         
-        // Reset form
+        // Reset selection
         selectedMood = null
-        moodSelectorAdapter.clearSelection()
-        updateSaveButtonState()
         
         // Refresh history
         loadMoodHistory()
@@ -180,24 +142,10 @@ class MoodFragment : Fragment() {
     
     private fun loadMoodHistory() {
         val moodEntries = prefsManager.getMoodEntries()
-        moodHistoryAdapter.updateMoodEntries(moodEntries)
-        
-        // Update mood trend chart
-        moodChartHelper.setupMoodTrendChart(chartMoodTrend, moodEntries)
-        
-        // Update share button state
-        val todayEntries = prefsManager.getTodayMoodEntries()
-        btnShareMood.isEnabled = todayEntries.isNotEmpty()
-        
-        // Update empty state visibility
-        val isEmpty = moodEntries.isEmpty()
-        recyclerMoodHistory.visibility = if (isEmpty) View.GONE else View.VISIBLE
-        view?.findViewById<View>(R.id.layout_empty_mood_history)?.visibility = if (isEmpty) View.VISIBLE else View.GONE
-        
-        // If calendar view is visible, update it too
-        if (layoutMoodCalendar.visibility == View.VISIBLE) {
-            generateCalendarView()
-        }
+
+
+        // Always update calendar view only
+        generateCalendarView()
     }
     
     private fun deleteMoodEntry(entry: MoodEntry) {
@@ -247,18 +195,7 @@ class MoodFragment : Fragment() {
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)))
     }
     
-    private fun showListView() {
-        recyclerMoodHistory.visibility = View.VISIBLE
-        layoutMoodCalendar.visibility = View.GONE
-    }
-    
-    private fun showCalendarView() {
-        recyclerMoodHistory.visibility = View.GONE
-        layoutMoodCalendar.visibility = View.VISIBLE
-        
-        // Generate calendar view
-        generateCalendarView()
-    }
+    // List/Calendar toggle removed – calendar is the sole view
     
     private fun generateCalendarView() {
         // Clear existing calendar content
@@ -345,7 +282,7 @@ class MoodFragment : Fragment() {
             val dateHeader = TextView(requireContext()).apply {
                 text = formatDateHeader(date)
                 textSize = 18f
-                setTextColor(requireContext().getColor(R.color.primary_green))
+                setTextColor(requireContext().getColor(R.color.primary))
                 setTypeface(null, Typeface.BOLD)
                 setPadding(0, 0, 0, 16)
             }
@@ -390,6 +327,46 @@ class MoodFragment : Fragment() {
                 infoLayout.addView(timeText)
                 
                 entryView.addView(infoLayout)
+
+                // Spacer to push action buttons to the end
+                val spacer = View(requireContext())
+                spacer.layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+                entryView.addView(spacer)
+
+                // Resolve borderless ripple background
+                val outValue = TypedValue()
+                requireContext().theme.resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, outValue, true)
+                val rippleResId = outValue.resourceId
+
+                val size = (32 * resources.displayMetrics.density).roundToInt()
+                val pad = (4 * resources.displayMetrics.density).roundToInt()
+                val marginSmall = (4 * resources.displayMetrics.density).roundToInt()
+
+                // Share button (match history item style)
+                val shareButton = android.widget.ImageButton(requireContext()).apply {
+                    setImageResource(R.drawable.ic_share)
+                    contentDescription = getString(R.string.share)
+                    setBackgroundResource(rippleResId)
+                    setPadding(pad, pad, pad, pad)
+                    setColorFilter(requireContext().getColor(R.color.text_secondary))
+                    layoutParams = LinearLayout.LayoutParams(size, size).apply {
+                        setMargins(0, 0, marginSmall, 0)
+                    }
+                    setOnClickListener { shareMoodEntry(entry) }
+                }
+                entryView.addView(shareButton)
+
+                // Delete button (match history item style)
+                val deleteButton = android.widget.ImageButton(requireContext()).apply {
+                    setImageResource(R.drawable.ic_delete)
+                    contentDescription = getString(R.string.delete)
+                    setBackgroundResource(rippleResId)
+                    setPadding(pad, pad, pad, pad)
+                    setColorFilter(requireContext().getColor(R.color.error_red))
+                    layoutParams = LinearLayout.LayoutParams(size, size)
+                    setOnClickListener { deleteMoodEntry(entry) }
+                }
+                entryView.addView(deleteButton)
                 dateCardContent.addView(entryView)
                 
                 // Add separator between entries (except for the last one)

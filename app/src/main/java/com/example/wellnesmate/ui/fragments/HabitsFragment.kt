@@ -32,7 +32,6 @@ import java.util.*
 class HabitsFragment : Fragment() {
     
     private lateinit var recyclerView: RecyclerView
-    private lateinit var fabAddHabit: ExtendedFloatingActionButton
     private lateinit var tvProgressSummary: TextView
     private lateinit var progressCircular: com.google.android.material.progressindicator.CircularProgressIndicator
     private lateinit var tvProgressCount: TextView
@@ -74,7 +73,6 @@ class HabitsFragment : Fragment() {
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
         recyclerView = view.findViewById(R.id.recycler_habits)
-        fabAddHabit = view.findViewById(R.id.fab_add_habit)
         tvProgressSummary = view.findViewById(R.id.tv_progress_summary)
         progressCircular = view.findViewById(R.id.progress_circular)
         tvProgressCount = view.findViewById(R.id.tv_progress_count)
@@ -106,10 +104,6 @@ class HabitsFragment : Fragment() {
     }
     
     private fun setupClickListeners() {
-        fabAddHabit.setOnClickListener {
-            addNewHabit()
-        }
-        
         cardNewHabit.setOnClickListener {
             addNewHabit()
         }

@@ -51,7 +51,6 @@ class HabitsAdapter(
         private val tvHabitDescription: TextView = itemView.findViewById(R.id.tv_habit_description)
         private val tvHabitTarget: TextView = itemView.findViewById(R.id.tv_habit_target)
         private val tvProgressText: TextView = itemView.findViewById(R.id.tv_progress_text)
-        private val tvStreak: TextView = itemView.findViewById(R.id.tv_streak)
         private val progressBar: ProgressBar = itemView.findViewById(R.id.progress_bar_habit)
         private val btnToggleCompletion: MaterialButton = itemView.findViewById(R.id.btn_toggle_completion)
         private val btnEditHabit: ImageButton = itemView.findViewById(R.id.btn_edit_habit)
@@ -80,9 +79,6 @@ class HabitsAdapter(
             tvProgressText.text = "Progress: ${progress.currentValue}/${habit.targetValue} ${habit.unit}"
             progressBar.progress = progressPercentage
 
-            // Streak info
-            val streak = prefsManager.calculateHabitStreak(habit.id)
-            tvStreak.text = itemView.context.getString(R.string.habit_streak, streak)
 
             // Completion button with smooth color inversion
             if (progress.isCompleted) {

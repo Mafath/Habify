@@ -110,19 +110,10 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_progress_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/text_size_body_medium"
-                    tools:text="Progress: 20/30 minutes" />
-
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progress_bar_habit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_small"
                     android:progress="67"
                     app:trackCornerRadius="4dp"
                     app:trackThickness="6dp"
@@ -130,13 +121,13 @@
                     app:trackColor="@color/progress_incomplete" />
 
                 <TextView
-                    android:id="@+id/tv_streak"
+                    android:id="@+id/tv_progress_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:textColor="@color/text_tertiary"
                     android:textSize="@dimen/text_size_body_small"
-                    tools:text="Streak: 5 days" />
+                    tools:text="Progress: 20/30 minutes" />
 
             </LinearLayout>
 

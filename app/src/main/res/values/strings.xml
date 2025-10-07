@@ -36,7 +36,7 @@
 
     <!-- Mood Calendar -->
     <string name="mood_calendar_title">Mood Calendar</string>
-    <string name="mood_calendar_explanation">Your mood entries organized by date</string>
+    <string name="mood_calendar_explanation">Your moods grouped by day. Use the icons to share or delete.</string>
     <string name="no_mood_entries_calendar">No mood entries to display in calendar view</string>
 
     <!-- Mood Emojis and Labels -->
@@ -94,6 +94,7 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
+    <string name="share">Share</string>
     <string name="add">Add</string>
     <string name="done">Done</string>
     <string name="ok">OK</string>

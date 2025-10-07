@@ -116,23 +116,23 @@
                             android:orientation="vertical"
                             android:gravity="center">
 
-                            <TextView
-                                android:id="@+id/tv_hydration_count"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0 of 2000"
-                                android:textColor="@color/text_primary"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_hydration_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 of 2000"
+                            android:textColor="@color/text_primary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/tv_hydration_percent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0%"
-                                android:textColor="@color/text_primary"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_hydration_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -178,121 +178,51 @@
                         android:textSize="@dimen/text_size_headline_small"
                         android:textStyle="bold" />
 
+                    <!-- Daily Goal - Centered -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_large"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <!-- Current Intake -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/current_intake"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_medium" />
-
-                            <TextView
-                                android:id="@+id/tv_current_intake"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_small"
-                                android:textColor="@color/primary"
-                                android:textSize="@dimen/text_size_display_small"
-                                android:textStyle="bold"
-                                tools:text="1200 ml" />
-
-                        </LinearLayout>
-
-                        <!-- Divider -->
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="40dp"
-                            android:background="@color/text_hint"
-                            android:layout_marginHorizontal="@dimen/spacing_large" />
-
-                        <!-- Daily Goal -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/daily_goal"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_medium" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_small"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_daily_goal"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/text_primary"
-                                    android:textSize="@dimen/text_size_display_small"
-                                    android:textStyle="bold"
-                                    tools:text="2000 ml" />
-
-                                <ImageButton
-                                    android:id="@+id/btn_edit_daily_goal"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_marginStart="@dimen/spacing_small"
-                                    android:background="@drawable/circle_background_gray"
-                                    android:contentDescription="Edit daily goal"
-                                    android:src="@drawable/ic_edit"
-                                    app:tint="@color/text_secondary" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Progress Bar -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_large"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:gravity="center">
 
                         <TextView
-                            android:id="@+id/tv_progress_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@string/daily_goal"
                             android:textColor="@color/text_secondary"
-                            android:textSize="@dimen/text_size_body_medium"
-                            tools:text="60% of daily goal" />
+                            android:textSize="@dimen/text_size_body_medium" />
 
-                        <com.google.android.material.progressindicator.LinearProgressIndicator
-                            android:id="@+id/progress_bar_hydration"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_small"
-                            android:progress="60"
-                            app:trackCornerRadius="4dp"
-                            app:trackThickness="8dp"
-                            app:indicatorColor="@color/accent_blue"
-                            app:trackColor="@color/progress_incomplete" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tv_daily_goal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/text_size_display_small"
+                                android:textStyle="bold"
+                                tools:text="2000 ml" />
+
+                            <ImageButton
+                                android:id="@+id/btn_edit_daily_goal"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="@dimen/spacing_small"
+                                android:background="@null"
+                                android:contentDescription="Edit daily goal"
+                                android:src="@drawable/ic_edit"
+                                app:tint="@color/text_secondary" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
+
 
                     <!-- Action Buttons -->
                     <LinearLayout

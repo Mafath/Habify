@@ -51,9 +51,6 @@ import java.util.concurrent.TimeUnit
 class HydrationFragment : Fragment() {
     
     private lateinit var tvDailyGoal: TextView
-    private lateinit var tvCurrentIntake: TextView
-    private lateinit var tvProgressText: TextView
-    private lateinit var progressBarHydration: ProgressBar
     private lateinit var progressCircularHydration: com.google.android.material.progressindicator.CircularProgressIndicator
     private lateinit var tvHydrationCount: TextView
     private lateinit var tvHydrationPercent: TextView
@@ -93,9 +90,6 @@ class HydrationFragment : Fragment() {
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
         tvDailyGoal = view.findViewById(R.id.tv_daily_goal)
-        tvCurrentIntake = view.findViewById(R.id.tv_current_intake)
-        tvProgressText = view.findViewById(R.id.tv_progress_text)
-        progressBarHydration = view.findViewById(R.id.progress_bar_hydration)
         progressCircularHydration = view.findViewById(R.id.progress_circular_hydration)
         tvHydrationCount = view.findViewById(R.id.tv_hydration_count)
         tvHydrationPercent = view.findViewById(R.id.tv_hydration_percent)
@@ -107,7 +101,10 @@ class HydrationFragment : Fragment() {
     }
     
     private fun setupHydrationHistory() {
-        hydrationHistoryAdapter = HydrationHistoryAdapter()
+        hydrationHistoryAdapter = HydrationHistoryAdapter(
+            onShareClick = { intake -> shareHydrationIntake(intake) },
+            onDeleteClick = { intake -> deleteHydrationIntake(intake) }
+        )
         
         recyclerHydrationHistory.apply {
             layoutManager = LinearLayoutManager(context)
@@ -135,9 +132,8 @@ class HydrationFragment : Fragment() {
         val todayIntake = prefsManager.getTodayTotalHydration()
         val todayIntakeList = prefsManager.getTodayHydrationIntake()
         
-        // Update goal and current intake
+        // Update goal
         tvDailyGoal.text = "${settings.dailyGoalMl} ${getString(R.string.ml_unit)}"
-        tvCurrentIntake.text = "$todayIntake ${getString(R.string.ml_unit)}"
         
         // Update progress
         val progressPercentage = if (settings.dailyGoalMl > 0) {
@@ -145,9 +141,6 @@ class HydrationFragment : Fragment() {
         } else {
             0
         }
-        
-        progressBarHydration.progress = progressPercentage
-        tvProgressText.text = "$progressPercentage% of daily goal"
         
         // Update circular progress section
         progressCircularHydration.progress = progressPercentage
@@ -668,5 +661,38 @@ class HydrationFragment : Fragment() {
             // For older versions, directly schedule the alarm
             HydrationAlarmScheduler.scheduleRecurringAlarm(requireContext(), settings)
         }
+    }
+    
+    private fun shareHydrationIntake(intake: HydrationIntake) {
+        val timeFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
+        
+        val shareText = "I drank ${intake.amountMl}ml of water at ${timeFormat.format(intake.timestamp)} on ${dateFormat.format(intake.timestamp)} 💧"
+        
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, shareText)
+        }
+        
+        startActivity(Intent.createChooser(shareIntent, "Share hydration intake"))
+    }
+    
+    private fun deleteHydrationIntake(intake: HydrationIntake) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Delete Intake")
+            .setMessage("Are you sure you want to delete this ${intake.amountMl}ml intake?")
+            .setPositiveButton("Delete") { _, _ ->
+                prefsManager.removeHydrationIntake(intake)
+                updateHydrationDisplay()
+                
+                android.widget.Toast.makeText(
+                    requireContext(),
+                    "Intake deleted",
+                    android.widget.Toast.LENGTH_SHORT
+                ).show()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 }

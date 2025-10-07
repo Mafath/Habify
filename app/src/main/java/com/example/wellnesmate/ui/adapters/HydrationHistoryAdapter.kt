@@ -3,6 +3,7 @@ package com.example.wellnesmate.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellnesmate.R
@@ -13,7 +14,10 @@ import java.util.*
 /**
  * Adapter for hydration history list
  */
-class HydrationHistoryAdapter : RecyclerView.Adapter<HydrationHistoryAdapter.HydrationHistoryViewHolder>() {
+class HydrationHistoryAdapter(
+    private val onShareClick: (HydrationIntake) -> Unit,
+    private val onDeleteClick: (HydrationIntake) -> Unit
+) : RecyclerView.Adapter<HydrationHistoryAdapter.HydrationHistoryViewHolder>() {
 
     private var intakes: List<HydrationIntake> = emptyList()
     private val timeFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
@@ -42,6 +46,8 @@ class HydrationHistoryAdapter : RecyclerView.Adapter<HydrationHistoryAdapter.Hyd
         private val tvIntakeAmount: TextView = itemView.findViewById(R.id.tv_intake_amount)
         private val tvIntakeTime: TextView = itemView.findViewById(R.id.tv_intake_time)
         private val tvIntakeDate: TextView = itemView.findViewById(R.id.tv_intake_date)
+        private val btnShareIntake: ImageButton = itemView.findViewById(R.id.btn_share_intake)
+        private val btnDeleteIntake: ImageButton = itemView.findViewById(R.id.btn_delete_intake)
 
         fun bind(intake: HydrationIntake) {
             tvIntakeAmount.text = "${intake.amountMl} ml"
@@ -68,6 +74,10 @@ class HydrationHistoryAdapter : RecyclerView.Adapter<HydrationHistoryAdapter.Hyd
                     tvIntakeDate.visibility = View.VISIBLE
                 }
             }
+            
+            // Set up click listeners
+            btnShareIntake.setOnClickListener { onShareClick(intake) }
+            btnDeleteIntake.setOnClickListener { onDeleteClick(intake) }
         }
     }
 }

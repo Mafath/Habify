@@ -70,6 +70,88 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
 
+            <!-- Hydration Progress Summary Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="@dimen/card_corner_radius_large"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/card_hydration"
+                app:strokeWidth="0dp"
+                android:outlineProvider="bounds"
+                android:stateListAnimator="@null">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large"
+                    android:gravity="center">
+
+                    <!-- Circular Progress -->
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/progress_circular_hydration"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:progress="0"
+                            app:indicatorColor="@color/accent_blue"
+                            app:trackColor="@color/progress_incomplete"
+                            app:indicatorSize="120dp"
+                            app:indicatorDirectionCircular="clockwise"
+                            app:indicatorInset="8dp"
+                            app:showAnimationBehavior="outward" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_hydration_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 of 2000"
+                                android:textColor="@color/text_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_hydration_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/text_primary"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tv_hydration_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="0 ml consumed (0%)"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_body_medium"
+                        tools:text="1200 ml consumed (60%)" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
             <!-- Current Status Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"

@@ -235,18 +235,7 @@ class MoodFragment : Fragment() {
             )
         }
         
-        // Add title
-        val title = TextView(requireContext()).apply {
-            text = getString(R.string.mood_calendar_title)
-            textSize = 20f
-            setTextColor(requireContext().getColor(R.color.text_primary))
-            setTypeface(null, Typeface.BOLD)
-            setPadding(0, 0, 0, 16)
-            gravity = android.view.Gravity.CENTER
-        }
-        calendarLayout.addView(title)
-        
-        // Add explanation text
+        // Title removed at user's request; keep explanation below
         val explanation = TextView(requireContext()).apply {
             text = getString(R.string.mood_calendar_explanation)
             textSize = 14f

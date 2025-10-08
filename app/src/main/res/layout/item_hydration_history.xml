@@ -9,13 +9,12 @@
     android:gravity="center_vertical"
     android:background="?attr/selectableItemBackground">
 
-    <!-- Water Icon -->
+    <!-- Intake Icon -->
     <ImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_water_drop"
-        app:tint="@color/accent_blue" />
+        android:layout_width="@dimen/icon_size_extra_large"
+        android:layout_height="@dimen/icon_size_extra_large"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:src="@drawable/ic_star_gold" />
 
     <!-- Intake Info -->
     <LinearLayout
@@ -49,6 +48,7 @@
         android:id="@+id/tv_intake_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_small"
         android:background="@drawable/date_badge_background"
         android:paddingHorizontal="8dp"
         android:paddingVertical="4dp"
@@ -57,5 +57,33 @@
         android:visibility="gone"
         tools:text="Dec 15"
         tools:visibility="visible" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btn_share_intake"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/spacing_extra_small"
+            android:background="@drawable/circle_background_gray"
+            android:contentDescription="@string/share"
+            android:src="@drawable/ic_share"
+            app:tint="@color/primary" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_intake"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_background_gray"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/error" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -388,6 +388,12 @@ class SharedPreferencesManager(context: Context) {
         return getTodayHydrationIntake().sumOf { it.amountMl }
     }
     
+    fun removeHydrationIntake(intake: HydrationIntake) {
+        val intakes = getHydrationIntake().toMutableList()
+        intakes.removeAll { it.id == intake.id }
+        saveHydrationIntake(intakes)
+    }
+    
     // APP SETTINGS
     
     fun setFirstLaunch(isFirst: Boolean) {

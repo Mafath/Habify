@@ -50,21 +50,21 @@
 
             </LinearLayout>
 
+            <!-- Title Row: Centered "Hydration Tracker" (like Habits/Mood) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hydration Tracker"
+                android:textAlignment="center"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_headline_medium"
+                android:textStyle="bold"
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingEnd="@dimen/spacing_large" />
+
         </LinearLayout>
 
-        <!-- Page Title -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hydration_title"
-            android:textAlignment="center"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_size_display_small"
-            android:textStyle="bold"
-            android:paddingStart="@dimen/spacing_large"
-            android:paddingEnd="@dimen/spacing_medium"
-            android:paddingTop="@dimen/spacing_medium"
-            android:paddingBottom="0dp" />
+        
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -246,6 +246,7 @@
                             app:backgroundTint="@color/primary"
                             app:cornerRadius="@dimen/button_corner_radius_large"
                             app:icon="@drawable/ic_add"
+                            app:iconTint="@color/on_primary"
                             app:iconGravity="textStart" />
 
                         <com.google.android.material.button.MaterialButton
@@ -272,6 +273,17 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Recent Intakes Title on background (always visible, not on a card) -->
+            <TextView
+                android:id="@+id/title_recent_intakes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Recent Intakes"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_headline_small"
+                android:textStyle="bold" />
 
             <!-- Background Empty State (directly under Daily Goal card) -->
             <LinearLayout
@@ -314,7 +326,7 @@
 
             </LinearLayout>
 
-            <!-- Today's History Card -->
+            <!-- Today's History Card (list content) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_hydration_history"
                 android:layout_width="match_parent"
@@ -332,20 +344,11 @@
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_large">
 
-                    <TextView
-                        android:id="@+id/title_recent_intakes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Recent Intakes"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
-                        android:textStyle="bold" />
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_hydration_history"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:nestedScrollingEnabled="false"
                         tools:itemCount="3"
                         tools:listitem="@layout/item_hydration_history" />

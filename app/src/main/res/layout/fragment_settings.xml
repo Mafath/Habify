@@ -350,9 +350,8 @@
                             app:cardBackgroundColor="@color/surface_variant">
 
                             <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="@dimen/icon_size_extra_large"
                                 android:layout_width="@dimen/icon_size_extra_large"
+                                android:layout_height="@dimen/icon_size_extra_large"
                                 android:layout_margin="@dimen/spacing_small"
                                 android:src="@drawable/ic_launcher_foreground"
                                 app:tint="@color/primary" />

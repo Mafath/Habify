@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/iv_menu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_size_menu"
+                    android:layout_height="@dimen/icon_size_menu"
                     android:layout_marginEnd="@dimen/spacing_medium"
                     android:contentDescription="Menu"
                     android:src="@drawable/ic_menu" />
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="Habify"
                     android:textColor="@color/primary"
-                    android:textSize="34sp"
+                    android:textSize="@dimen/text_size_appbar_title"
                     android:textStyle="bold" />
                 
 
@@ -82,11 +82,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_large"
                 app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="8dp"
+                app:cardElevation="@dimen/elevation_large"
                 app:cardBackgroundColor="@color/card_mood"
                 android:outlineProvider="bounds"
                 android:stateListAnimator="@null"
-                app:strokeWidth="0dp">
+                app:strokeWidth="@dimen/stroke_width_none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,13 +126,14 @@
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="24dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="@dimen/card_corner_radius_xlarge"
+                            app:cardElevation="@dimen/elevation_none"
                             app:cardBackgroundColor="@color/surface_variant">
 
                             <ImageView
                                 android:layout_width="60dp"
-                                android:layout_height="60dp"
+                                android:layout_height="@dimen/empty_state_icon_size"
+                                android:layout_width="@dimen/empty_state_icon_size"
                                 android:padding="@dimen/spacing_medium"
                                 android:src="@drawable/ic_mood"
                                 app:tint="@color/text_hint" />
@@ -169,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/spacing_large"
         android:text="Add Mood+"
         android:textAllCaps="false"
         app:icon="@drawable/ic_add"

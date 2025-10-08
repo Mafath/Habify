@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/iv_menu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_size_menu"
+                    android:layout_height="@dimen/icon_size_menu"
                     android:layout_marginEnd="@dimen/spacing_medium"
                     android:contentDescription="Menu"
                     android:src="@drawable/ic_menu" />
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="Habify"
                     android:textColor="@color/primary"
-                    android:textSize="34sp"
+                    android:textSize="@dimen/text_size_appbar_title"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -80,9 +80,9 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_medium"
                 app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="8dp"
+                app:cardElevation="@dimen/elevation_large"
                 app:cardBackgroundColor="@color/card_hydration"
-                app:strokeWidth="0dp"
+                app:strokeWidth="@dimen/stroke_width_none"
                 android:outlineProvider="bounds"
                 android:stateListAnimator="@null">
 
@@ -101,14 +101,14 @@
 
                         <com.google.android.material.progressindicator.CircularProgressIndicator
                             android:id="@+id/progress_circular_hydration"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
+                            android:layout_width="@dimen/progress_indicator_size_large"
+                            android:layout_height="@dimen/progress_indicator_size_large"
                             android:progress="0"
                             app:indicatorColor="@color/accent_blue"
                             app:trackColor="@color/progress_incomplete"
-                            app:indicatorSize="120dp"
+                            app:indicatorSize="@dimen/progress_indicator_size_large"
                             app:indicatorDirectionCircular="clockwise"
-                            app:indicatorInset="8dp"
+                            app:indicatorInset="@dimen/progress_indicator_inset"
                             app:showAnimationBehavior="outward" />
 
                         <LinearLayout
@@ -124,7 +124,7 @@
                             android:layout_height="wrap_content"
                             android:text="0 of 2000"
                             android:textColor="@color/text_primary"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/text_size_headline_medium"
                             android:textStyle="bold" />
 
                         <TextView
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:text="0%"
                             android:textColor="@color/text_primary"
-                            android:textSize="16sp"
+                            android:textSize="@dimen/text_size_title_large"
                             android:textStyle="bold" />
 
                         </LinearLayout>
@@ -310,13 +310,14 @@
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="24dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="@dimen/card_corner_radius_xlarge"
+                            app:cardElevation="@dimen/stroke_width_none"
                             app:cardBackgroundColor="@color/surface_variant">
 
                             <ImageView
                                 android:layout_width="60dp"
-                                android:layout_height="60dp"
+                                android:layout_height="@dimen/empty_state_icon_size"
+                                android:layout_width="@dimen/empty_state_icon_size"
                                 android:padding="@dimen/spacing_medium"
                                 android:src="@drawable/ic_hydration"
                                 app:tint="@color/text_hint" />

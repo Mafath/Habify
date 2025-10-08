@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Quick Select"
-        android:textColor="@color/text_primary"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <GridLayout
@@ -46,7 +46,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="200ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_250"
@@ -56,7 +60,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="250ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_300"
@@ -66,7 +74,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="300ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_330"
@@ -76,7 +88,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="330ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_500"
@@ -86,7 +102,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="500ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_750"
@@ -96,7 +116,11 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="750ml"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
     </GridLayout>
 

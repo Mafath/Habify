@@ -134,7 +134,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="times"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_minutes"
@@ -142,7 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="minutes"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_hours"
@@ -150,7 +152,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="hours"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_glasses"
@@ -158,7 +161,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="glasses"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_steps"
@@ -166,7 +170,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="steps"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_pages"
@@ -174,7 +179,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pages"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_km"
@@ -182,7 +188,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="km"
-            app:chipBackgroundColor="@color/chip_background_selector" />
+            app:chipBackgroundColor="@color/chip_background_selector"
+            android:textColor="@color/text_primary" />
 
     </com.google.android.material.chip.ChipGroup>
 

@@ -21,11 +21,10 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 class SettingsFragment : Fragment() {
     
     private lateinit var prefsManager: SharedPreferencesManager
-    private lateinit var cardHydrationSettings: MaterialCardView
-    private lateinit var cardAppInfo: MaterialCardView
+    // Removed hydration settings and app info cards
     private lateinit var cardLogout: MaterialCardView  // Add this line
     private lateinit var switchNotifications: SwitchMaterial
-    private lateinit var tvAppVersion: TextView
+    // App version text removed with App Information section
     
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,24 +48,15 @@ class SettingsFragment : Fragment() {
     
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
-        cardHydrationSettings = view.findViewById(R.id.card_hydration_settings)
-        cardAppInfo = view.findViewById(R.id.card_app_info)
+        // Removed: hydration settings and app info card bindings
         cardLogout = view.findViewById(R.id.card_logout)  // Add this line
         // Data management card removed as per user request
         switchNotifications = view.findViewById(R.id.switch_notifications)
-        tvAppVersion = view.findViewById(R.id.tv_app_version)
+        // tv_app_version removed from layout
     }
     
     private fun setupClickListeners() {
-        cardHydrationSettings.setOnClickListener {
-            // Open hydration settings (could navigate to hydration fragment)
-            (activity as? MainActivity)?.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)
-                ?.selectedItemId = R.id.nav_hydration
-        }
-        
-        cardAppInfo.setOnClickListener {
-            showAboutDialog()
-        }
+        // Removed: hydration settings and app info click listeners
         
         cardLogout.setOnClickListener {
             showLogoutConfirmation()
@@ -82,7 +72,7 @@ class SettingsFragment : Fragment() {
     private fun loadSettings() {
         val hydrationSettings = prefsManager.getHydrationSettings()
         switchNotifications.isChecked = hydrationSettings.reminderEnabled
-        tvAppVersion.text = getString(R.string.version_info)
+        // Removed: app version text (app info section removed)
     }
     
     private fun updateNotificationSettings(enabled: Boolean) {

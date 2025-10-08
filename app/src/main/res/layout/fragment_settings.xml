@@ -171,9 +171,8 @@
                         app:cardBackgroundColor="@color/surface_variant">
 
                     <ImageView
-                            android:layout_width="24dp"
-                        android:layout_height="@dimen/icon_size_large"
                         android:layout_width="@dimen/icon_size_large"
+                        android:layout_height="@dimen/icon_size_large"
                             android:layout_margin="@dimen/spacing_medium"
                             android:src="@drawable/ic_hydration"
                             app:tint="@color/accent_blue" />
@@ -206,9 +205,8 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="@dimen/icon_size_small"
                         android:layout_width="@dimen/icon_size_small"
+                        android:layout_height="@dimen/icon_size_small"
                         android:src="@drawable/ic_arrow_forward"
                         app:tint="@color/text_hint" />
 

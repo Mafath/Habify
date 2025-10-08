@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Reminder Frequency"
-        android:textColor="@color/text_primary"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <GridLayout
@@ -45,7 +45,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="30 min"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_freq_1"
@@ -55,7 +57,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="1 hour"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_freq_2"
@@ -65,7 +69,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="2 hours"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_freq_3"
@@ -75,7 +81,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="3 hours"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_freq_4"
@@ -85,7 +93,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="4 hours"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_freq_custom"
@@ -95,7 +105,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             android:text="Custom"
-            android:textSize="12sp" />
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white" />
 
     </GridLayout>
 
@@ -105,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Reminder Time"
-        android:textColor="@color/text_primary"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <com.google.android.material.card.MaterialCardView
@@ -113,7 +125,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="2dp">
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -126,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:text="Set Reminder Time"
                 android:textAlignment="center"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <TextView
@@ -134,12 +149,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="?attr/selectableItemBackground"
                 android:padding="8dp"
                 android:text="08:00"
                 android:textAlignment="center"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

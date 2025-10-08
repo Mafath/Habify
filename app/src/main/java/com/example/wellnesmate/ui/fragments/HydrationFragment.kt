@@ -164,7 +164,7 @@ class HydrationFragment : Fragment() {
             cardHydrationHistory.visibility = View.VISIBLE
             layoutEmptyHydration.visibility = View.GONE
         } else {
-            titleRecentIntakes.visibility = View.GONE
+            titleRecentIntakes.visibility = View.VISIBLE
             cardHydrationHistory.visibility = View.GONE
             layoutEmptyHydration.visibility = View.VISIBLE
         }

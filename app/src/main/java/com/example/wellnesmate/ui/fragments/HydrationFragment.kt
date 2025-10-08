@@ -59,6 +59,9 @@ class HydrationFragment : Fragment() {
     private lateinit var btnSetReminder: MaterialButton
     private lateinit var btnEditDailyGoal: ImageButton
     private lateinit var recyclerHydrationHistory: RecyclerView
+    private lateinit var cardHydrationHistory: com.google.android.material.card.MaterialCardView
+    private lateinit var titleRecentIntakes: TextView
+    private lateinit var layoutEmptyHydration: View
     
     private lateinit var prefsManager: SharedPreferencesManager
     private lateinit var hydrationHistoryAdapter: HydrationHistoryAdapter
@@ -98,6 +101,9 @@ class HydrationFragment : Fragment() {
         btnSetReminder = view.findViewById(R.id.btn_set_reminder)
         btnEditDailyGoal = view.findViewById(R.id.btn_edit_daily_goal)
         recyclerHydrationHistory = view.findViewById(R.id.recycler_hydration_history)
+        cardHydrationHistory = view.findViewById(R.id.card_hydration_history)
+        titleRecentIntakes = view.findViewById(R.id.title_recent_intakes)
+        layoutEmptyHydration = view.findViewById(R.id.layout_empty_hydration)
     }
     
     private fun setupHydrationHistory() {
@@ -151,6 +157,17 @@ class HydrationFragment : Fragment() {
         // Update history - only show today's intakes
         val todayIntakes = prefsManager.getTodayHydrationIntake()
         hydrationHistoryAdapter.updateIntakes(todayIntakes)
+        // Toggle empty state vs list
+        val hasIntakesToday = todayIntakes.isNotEmpty()
+        if (hasIntakesToday) {
+            titleRecentIntakes.visibility = View.VISIBLE
+            cardHydrationHistory.visibility = View.VISIBLE
+            layoutEmptyHydration.visibility = View.GONE
+        } else {
+            titleRecentIntakes.visibility = View.GONE
+            cardHydrationHistory.visibility = View.GONE
+            layoutEmptyHydration.visibility = View.VISIBLE
+        }
         
         // Check if goal is reached
         if (progressPercentage >= 100) {

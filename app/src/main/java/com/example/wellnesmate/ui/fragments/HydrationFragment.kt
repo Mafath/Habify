@@ -148,9 +148,9 @@ class HydrationFragment : Fragment() {
         tvHydrationPercent.text = "$progressPercentage%"
         tvHydrationSummary.text = "$todayIntake ml consumed ($progressPercentage%)"
         
-        // Update history
-        val allIntakes = prefsManager.getHydrationIntake().take(10) // Show last 10 entries
-        hydrationHistoryAdapter.updateIntakes(allIntakes)
+        // Update history - only show today's intakes
+        val todayIntakes = prefsManager.getTodayHydrationIntake()
+        hydrationHistoryAdapter.updateIntakes(todayIntakes)
         
         // Check if goal is reached
         if (progressPercentage >= 100) {

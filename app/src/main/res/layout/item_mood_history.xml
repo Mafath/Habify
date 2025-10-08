@@ -6,15 +6,15 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="0dp"
     android:layout_marginVertical="4dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="1dp"
+    app:cardCornerRadius="@dimen/card_corner_radius_small"
+    app:cardElevation="@dimen/card_elevation_small"
     app:cardBackgroundColor="@color/surface_color">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="@dimen/spacing_medium"
         android:gravity="center_vertical">
 
         <!-- Mood Emoji -->
@@ -22,8 +22,8 @@
             android:id="@+id/tv_mood_emoji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:layout_marginEnd="12dp"
+            android:textSize="@dimen/text_size_display_medium"
+            android:layout_marginEnd="@dimen/spacing_medium"
             tools:text="😊" />
 
         <!-- Mood Info -->
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_title_medium"
                     android:textStyle="bold"
                     tools:text="Happy" />
 
@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_hint"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/text_size_label_small"
                     tools:text="2:30 PM" />
 
             </LinearLayout>
@@ -67,18 +67,18 @@
                 android:id="@+id/tv_mood_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/spacing_tiny"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_body_small"
                 tools:text="Today" />
 
             <TextView
                 android:id="@+id/tv_mood_notes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/spacing_extra_small"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_body_small"
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:visibility="gone"
@@ -92,17 +92,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="@dimen/spacing_small">
 
             <ImageButton
                 android:id="@+id/btn_share_entry"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="@dimen/spacing_extra_small"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Share mood entry"
+                android:contentDescription="@string/share"
                 android:src="@drawable/ic_share"
-                android:padding="4dp"
+                android:padding="@dimen/spacing_extra_small"
                 app:tint="@color/text_secondary" />
 
             <ImageButton
@@ -110,9 +110,9 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Delete mood entry"
+                android:contentDescription="@string/delete"
                 android:src="@drawable/ic_delete"
-                android:padding="4dp"
+                android:padding="@dimen/spacing_extra_small"
                 app:tint="@color/error_red" />
 
         </LinearLayout>

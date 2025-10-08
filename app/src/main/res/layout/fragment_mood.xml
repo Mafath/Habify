@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="@dimen/spacing_medium"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 android:paddingBottom="@dimen/spacing_small"
@@ -41,13 +42,13 @@
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
                     android:layout_marginEnd="@dimen/spacing_medium"
-                    android:contentDescription="Menu"
+                    android:contentDescription="@string/menu_content_desc"
                     android:src="@drawable/ic_menu" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habify"
+                    android:text="@string/app_title_habify"
                     android:textColor="@color/primary"
                     android:textSize="@dimen/text_size_appbar_title"
                     android:textStyle="bold" />
@@ -143,7 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_medium"
-                            android:text="No mood entries yet"
+                            android:text="@string/mood_empty_title"
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/text_size_body_medium" />
 
@@ -152,7 +153,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_extra_small"
                             android:gravity="center"
-                            android:text="Start tracking your mood above"
+                            android:text="@string/mood_empty_subtitle"
                             android:textColor="@color/text_tertiary"
                             android:textSize="@dimen/text_size_body_small" />
 
@@ -170,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/spacing_large"
-        android:text="Add Mood+"
+        android:text="@string/add_mood_plus"
         android:textAllCaps="false"
         app:icon="@drawable/ic_add"
         app:backgroundTint="@color/primary"

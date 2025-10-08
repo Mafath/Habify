@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,10 +25,10 @@
         android:id="@+id/widget_progress_percentage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="0%"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:text="@string/zero_percent"
         android:textColor="@color/primary"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_display_small"
         android:textStyle="bold"
         android:gravity="center" />
 
@@ -36,10 +37,10 @@
         android:id="@+id/widget_progress_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="0/0 habits completed"
+        android:layout_marginTop="@dimen/spacing_extra_small"
+        android:text="@string/widget_habits_completed"
         android:textColor="@color/text_secondary"
-        android:textSize="12sp"
+        android:textSize="@dimen/text_size_body_small"
         android:gravity="center" />
 
     <!-- Progress Bar -->

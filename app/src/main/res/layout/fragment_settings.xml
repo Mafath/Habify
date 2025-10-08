@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="@dimen/spacing_medium"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 android:paddingBottom="@dimen/spacing_small"
@@ -37,13 +38,13 @@
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
                     android:layout_marginEnd="@dimen/spacing_medium"
-                    android:contentDescription="Menu"
+                    android:contentDescription="@string/menu_content_desc"
                     android:src="@drawable/ic_menu" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habify"
+                    android:text="@string/app_title_habify"
                     android:textColor="@color/primary"
                     android:textSize="@dimen/text_size_appbar_title"
                     android:textStyle="bold" />
@@ -116,13 +117,6 @@
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body_medium" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_tiny"
-                                android:text="Get reminded to drink water"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_small" />
 
                         </LinearLayout>
 
@@ -140,79 +134,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Hydration Settings -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_hydration_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/card_settings"
-                android:outlineProvider="bounds"
-                android:stateListAnimator="@null"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_large"
-                    android:gravity="center_vertical">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/card_corner_radius_medium"
-                app:cardElevation="@dimen/elevation_none"
-                        app:cardBackgroundColor="@color/surface_variant">
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_large"
-                        android:layout_height="@dimen/icon_size_large"
-                            android:layout_margin="@dimen/spacing_medium"
-                            android:src="@drawable/ic_hydration"
-                            app:tint="@color/accent_blue" />
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/spacing_medium"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Hydration Settings"
-                            android:textColor="@color/text_primary"
-                            android:textSize="@dimen/text_size_body_medium"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_tiny"
-                            android:text="Configure daily goals and reminders"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="@dimen/text_size_body_small" />
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_small"
-                        android:layout_height="@dimen/icon_size_small"
-                        android:src="@drawable/ic_arrow_forward"
-                        app:tint="@color/text_hint" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
 
             <!-- Logout Option -->
             <com.google.android.material.card.MaterialCardView
@@ -263,7 +184,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Logout"
+                            android:text="@string/delete"
                             android:textColor="@color/text_primary"
                             android:textSize="@dimen/text_size_body_medium"
                             android:textStyle="bold" />
@@ -272,7 +193,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_tiny"
-                            android:text="Sign out of your account"
+                            android:text="@string/confirm"
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/text_size_body_small" />
 
@@ -282,96 +203,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- App Information -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_app_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/elevation_large"
-                app:cardBackgroundColor="@color/card_settings"
-                android:outlineProvider="bounds"
-                android:stateListAnimator="@null"
-                app:strokeWidth="@dimen/stroke_width_none">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/app_info"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/version"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_small" />
-
-                            <TextView
-                                android:id="@+id/tv_app_version"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_tiny"
-                                android:text="@string/version_info"
-                                android:textColor="@color/text_primary"
-                                android:textSize="@dimen/text_size_body_medium" />
-
-                        </LinearLayout>
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/card_corner_radius_medium"
-                        app:cardElevation="@dimen/elevation_none"
-                            app:cardBackgroundColor="@color/surface_variant">
-
-                            <ImageView
-                                android:layout_width="@dimen/icon_size_extra_large"
-                                android:layout_height="@dimen/icon_size_extra_large"
-                                android:layout_margin="@dimen/spacing_small"
-                                android:src="@drawable/ic_launcher_foreground"
-                                app:tint="@color/primary" />
-
-                        </com.google.android.material.card.MaterialCardView>
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="@string/about_description"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/text_size_body_small"
-                        android:lineSpacingExtra="2dp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 

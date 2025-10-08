@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:hint="@string/water_amount"
         app:boxBackgroundMode="outline"
-        app:suffixText="ml">
+        app:suffixText="@string/ml_unit">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_water_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:text="250" />
+            android:text="@string/default_water_amount" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -27,8 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Quick Select"
-        android:textColor="@color/text_primary"
+        android:text="@string/quick_select"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <GridLayout
@@ -45,8 +45,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="200ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_200ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_250"
@@ -55,8 +59,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="250ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_250ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_300"
@@ -65,8 +73,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="300ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_300ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_330"
@@ -75,8 +87,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="330ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_330ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_500"
@@ -85,8 +101,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="500ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_500ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_preset_750"
@@ -95,8 +115,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="750ml"
-            android:textSize="12sp" />
+            android:text="@string/amount_750ml"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:backgroundTint="@color/white"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
 
     </GridLayout>
 

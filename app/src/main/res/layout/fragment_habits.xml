@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="@dimen/spacing_medium"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 android:paddingBottom="@dimen/spacing_small"
@@ -43,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habify"
+                    android:text="@string/app_title_habify"
                     android:textColor="@color/primary"
                     android:textSize="34sp"
                     android:textStyle="bold" />
@@ -54,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Routine"
+                android:text="@string/my_routine"
                 android:textAlignment="center"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_medium"
@@ -156,20 +157,20 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <TextView
+                <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="My Habits"
+                    android:text="@string/habits_title"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_medium"
                 android:textStyle="bold" />
 
-            <TextView
+                <TextView
                 android:id="@+id/tv_habit_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 habits"
+                    android:text="@string/no_data"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium"
                 tools:text="5 habits" />
@@ -213,7 +214,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="New Habit"
+                    android:text="@string/add_habit"
                     android:textColor="@color/progress_complete"
                     android:textSize="@dimen/text_size_body_large"
                     android:textStyle="bold" />
@@ -260,7 +261,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Add your first habit"
+                android:text="@string/recent_habits_empty_title"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_medium"
                 android:textStyle="bold" />
@@ -270,7 +271,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:gravity="center"
-                android:text="Build better routines, one tap away"
+                android:text="@string/recent_habits_empty_subtitle"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
 

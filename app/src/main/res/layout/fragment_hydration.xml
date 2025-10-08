@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="@dimen/spacing_medium"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 android:paddingBottom="@dimen/spacing_small"
@@ -37,13 +38,13 @@
                     android:layout_width="@dimen/icon_size_menu"
                     android:layout_height="@dimen/icon_size_menu"
                     android:layout_marginEnd="@dimen/spacing_medium"
-                    android:contentDescription="Menu"
+                    android:contentDescription="@string/menu_content_desc"
                     android:src="@drawable/ic_menu" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habify"
+                    android:text="@string/app_title_habify"
                     android:textColor="@color/primary"
                     android:textSize="@dimen/text_size_appbar_title"
                     android:textStyle="bold" />
@@ -54,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hydration Tracker"
+                android:text="@string/hydration_title"
                 android:textAlignment="center"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_medium"
@@ -122,7 +123,7 @@
                             android:id="@+id/tv_hydration_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0 of 2000"
+                            android:text="@string/hydration_default_count"
                             android:textColor="@color/text_primary"
                             android:textSize="@dimen/text_size_headline_medium"
                             android:textStyle="bold" />
@@ -131,7 +132,7 @@
                             android:id="@+id/tv_hydration_percent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0%"
+                            android:text="@string/zero_percent"
                             android:textColor="@color/text_primary"
                             android:textSize="@dimen/text_size_title_large"
                             android:textStyle="bold" />
@@ -145,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="0 ml consumed (0%)"
+                        android:text="@string/hydration_summary_default"
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/text_size_body_medium"
                         tools:text="1200 ml consumed (60%)" />
@@ -184,7 +185,7 @@
                             android:layout_width="@dimen/icon_size_extra_large"
                             android:layout_height="@dimen/icon_size_extra_large"
                             android:src="@drawable/ic_star_gold"
-                            android:contentDescription="Daily goal highlight"
+                            android:contentDescription="@string/daily_goal_highlight_content_desc"
                             android:layout_marginBottom="@dimen/spacing_small" />
 
                         <TextView
@@ -216,7 +217,7 @@
                                 android:layout_height="24dp"
                                 android:layout_marginStart="@dimen/spacing_small"
                                 android:background="@null"
-                                android:contentDescription="Edit daily goal"
+                                android:contentDescription="@string/edit_daily_goal_content_desc"
                                 android:src="@drawable/ic_edit"
                                 app:tint="@color/text_secondary" />
 
@@ -280,7 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Recent Intakes"
+                android:text="@string/recent_intakes"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_headline_small"
                 android:textStyle="bold" />
@@ -310,7 +311,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="Add your first water intake"
+                    android:text="@string/empty_hydration_title"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/text_size_headline_medium"
                     android:textStyle="bold" />
@@ -320,7 +321,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:gravity="center"
-                    android:text="Stay hydrated, one tap away"
+                    android:text="@string/empty_hydration_subtitle"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/text_size_body_medium" />
 

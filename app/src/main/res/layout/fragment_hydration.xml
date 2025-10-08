@@ -59,12 +59,12 @@
             android:text="@string/hydration_title"
             android:textAlignment="center"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_size_headline_large"
+            android:textSize="@dimen/text_size_display_small"
             android:textStyle="bold"
             android:paddingStart="@dimen/spacing_large"
-            android:paddingEnd="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_medium"
             android:paddingTop="@dimen/spacing_medium"
-            android:paddingBottom="@dimen/spacing_medium" />
+            android:paddingBottom="0dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,7 +76,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_large"
+                android:layout_marginHorizontal="0dp"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_medium"
                 app:cardCornerRadius="@dimen/card_corner_radius_large"
@@ -180,6 +180,13 @@
                         android:orientation="vertical"
                         android:gravity="center">
 
+                        <ImageView
+                            android:layout_width="@dimen/icon_size_extra_large"
+                            android:layout_height="@dimen/icon_size_extra_large"
+                            android:src="@drawable/ic_star_gold"
+                            android:contentDescription="Daily goal highlight"
+                            android:layout_marginBottom="@dimen/spacing_small" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -233,10 +240,11 @@
                             android:layout_weight="1"
                             android:layout_marginEnd="@dimen/spacing_small"
                             android:text="@string/add_water"
+                            android:textColor="@color/on_primary"
                             android:textSize="@dimen/text_size_body_medium"
                             android:textAllCaps="false"
-                            app:backgroundTint="@color/accent_blue"
-                            app:cornerRadius="@dimen/button_corner_radius"
+                            app:backgroundTint="@color/primary"
+                            app:cornerRadius="@dimen/button_corner_radius_large"
                             app:icon="@drawable/ic_add"
                             app:iconGravity="textStart" />
 
@@ -248,11 +256,15 @@
                             android:layout_weight="1"
                             android:layout_marginStart="@dimen/spacing_small"
                             android:text="@string/set_reminder"
+                            android:textColor="@color/primary"
                             android:textSize="@dimen/text_size_body_medium"
                             android:textAllCaps="false"
-                            app:strokeColor="@color/accent_blue"
-                            app:cornerRadius="@dimen/button_corner_radius"
+                            app:strokeColor="@color/primary"
+                            app:strokeWidth="@dimen/stroke_width_thin"
+                            app:backgroundTint="@color/white"
+                            app:cornerRadius="@dimen/button_corner_radius_large"
                             app:icon="@drawable/ic_alarm"
+                            app:iconTint="@color/primary"
                             app:iconGravity="textStart" />
 
                     </LinearLayout>
@@ -281,7 +293,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Recent Intake"
+                        android:text="Recent Intakes"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/text_size_headline_small"
                         android:textStyle="bold" />

@@ -45,6 +45,7 @@
     <dimen name="button_height_medium">48dp</dimen>
     <dimen name="button_height_large">56dp</dimen>
     <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="button_corner_radius_large">24dp</dimen>
     
     <!-- Icon sizes -->
     <dimen name="icon_size_extra_large">32dp</dimen>
@@ -67,4 +68,5 @@
     <dimen name="stroke_width_none">0dp</dimen>
     <dimen name="elevation_large">8dp</dimen>
     <dimen name="elevation_none">0dp</dimen>
+    <dimen name="stroke_width_thin">1dp</dimen>
 </resources>

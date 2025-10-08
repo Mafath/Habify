@@ -9,13 +9,12 @@
     android:gravity="center_vertical"
     android:background="?attr/selectableItemBackground">
 
-    <!-- Water Icon -->
+    <!-- Intake Icon -->
     <ImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_water_drop"
-        app:tint="@color/accent_blue" />
+        android:layout_width="@dimen/icon_size_extra_large"
+        android:layout_height="@dimen/icon_size_extra_large"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:src="@drawable/ic_star_gold" />
 
     <!-- Intake Info -->
     <LinearLayout

@@ -245,9 +245,8 @@
                         app:cardBackgroundColor="@color/surface_variant">
 
                             <ImageView
-                            android:layout_width="24dp"
-                                android:layout_height="@dimen/icon_size_large"
                                 android:layout_width="@dimen/icon_size_large"
+                                android:layout_height="@dimen/icon_size_large"
                             android:layout_margin="@dimen/spacing_medium"
                             android:src="@drawable/ic_logout"
                             app:tint="@color/error" />

@@ -203,9 +203,8 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="56dp"
-                    android:layout_height="@dimen/social_button_size"
                     android:layout_width="@dimen/social_button_size"
+                    android:layout_height="@dimen/social_button_size"
                     android:layout_marginEnd="@dimen/spacing_medium"
                     app:cardCornerRadius="@dimen/card_corner_radius_xxlarge"
                     app:cardElevation="@dimen/card_elevation_small"
@@ -221,7 +220,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="56dp"
+                    android:layout_width="@dimen/social_button_size"
                     android:layout_height="@dimen/social_button_size"
                     app:cardCornerRadius="@dimen/card_corner_radius_xxlarge"
                     app:cardElevation="@dimen/card_elevation_small"

@@ -131,9 +131,8 @@
                             app:cardBackgroundColor="@color/surface_variant">
 
                             <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="@dimen/empty_state_icon_size"
                                 android:layout_width="@dimen/empty_state_icon_size"
+                                android:layout_height="@dimen/empty_state_icon_size"
                                 android:padding="@dimen/spacing_medium"
                                 android:src="@drawable/ic_mood"
                                 app:tint="@color/text_hint" />

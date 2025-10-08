@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="6dp"
+    android:layout_marginHorizontal="@dimen/spacing_large"
+    android:layout_marginVertical="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/card_corner_radius_medium"
+    app:cardElevation="@dimen/card_elevation_medium"
     app:cardBackgroundColor="@color/card_background"
     app:strokeColor="@color/divider_color"
     app:strokeWidth="1dp">
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/spacing_extra_large">
 
         <!-- Header Row -->
         <LinearLayout
@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/text_size_title_large"
                     android:textStyle="bold"
                     tools:text="Exercise" />
 
@@ -45,9 +45,9 @@
                     android:id="@+id/tv_habit_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
                     android:textColor="@color/text_secondary"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_body_large"
                     android:visibility="gone"
                     tools:text="Daily physical activity"
                     tools:visibility="visible" />
@@ -56,9 +56,9 @@
                     android:id="@+id/tv_habit_target"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/spacing_small"
                     android:textColor="@color/text_secondary"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_body_large"
                     tools:text="Target: 30 minutes" />
 
             </LinearLayout>
@@ -73,9 +73,9 @@
                     android:id="@+id/btn_share"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Share habit"
+                    android:contentDescription="@string/share_habit_content_desc"
                     android:src="@drawable/ic_share"
                     app:tint="@color/text_secondary"
                     android:layout_gravity="center_vertical" />
@@ -85,7 +85,7 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Delete habit"
+                    android:contentDescription="@string/delete_habit_content_desc"
                     android:src="@drawable/ic_delete"
                     app:tint="@color/error_red"
                     android:layout_gravity="center_vertical" />
@@ -114,15 +114,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_secondary"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_body_large"
                     tools:text="Progress: 20/30 minutes" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar_habit"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/spacing_small"
                     android:max="100"
                     android:progress="67"
                     android:progressTint="@color/primary_green"
@@ -133,9 +133,9 @@
                     android:id="@+id/tv_streak"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/spacing_small"
                     android:textColor="@color/text_hint"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_title_medium"
                     tools:text="Streak: 5 days" />
 
             </LinearLayout>
@@ -145,13 +145,13 @@
                 android:id="@+id/btn_toggle_completion"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
+                android:layout_height="@dimen/button_height_small"
+                android:layout_marginStart="@dimen/spacing_extra_large"
                 android:text="@string/mark_complete"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_size_title_medium"
                 android:textAllCaps="false"
                 app:backgroundTint="@color/primary_green_light"
-                app:cornerRadius="24dp"
+                app:cornerRadius="@dimen/button_corner_radius"
                 app:strokeColor="@color/primary_green"
                 app:strokeWidth="1dp"
                 tools:text="Complete" />

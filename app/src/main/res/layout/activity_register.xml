@@ -24,8 +24,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
+                app:cardCornerRadius="@dimen/card_corner_radius_xlarge"
+                app:cardElevation="@dimen/card_elevation_large"
                 app:strokeWidth="0dp"/>
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
-                android:text="Create an account to get started"
+                android:text="@string/register_subtitle"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_large" />
 
@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Full name"
+                android:text="@string/full_name"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small"
                 android:layout_marginBottom="@dimen/spacing_extra_small" />
@@ -70,7 +70,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"
+                android:hint="@string/full_name"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:text="Email address"
+                android:text="@string/email_address"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -102,7 +102,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email_address"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -124,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:text="Password"
+                android:text="@string/password"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -134,7 +134,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -157,7 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:text="Confirm password"
+                android:text="@string/confirm_password"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -167,7 +167,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm Password"
+                android:hint="@string/confirm_password"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -191,7 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height_large"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Create Account"
+                android:text="@string/create_account"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_body_large"
@@ -212,7 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account?"
+                android:text="@string/have_account"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
 
@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
                 android:padding="@dimen/spacing_extra_small"
-                android:text="Sign In"
+                android:text="@string/sign_in"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/text_size_body_medium"
                 android:textStyle="bold" />
@@ -240,7 +240,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="By signing up, you agree to our"
+                android:text="@string/signup_agree_prefix"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -249,14 +249,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_extra_small"
                 android:padding="@dimen/spacing_extra_small"
-                android:text="Terms of Service"
+                android:text="@string/terms_of_service"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/text_size_body_small" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="and"
+                android:text="@string/and_word"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -265,7 +265,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_extra_small"
                 android:padding="@dimen/spacing_extra_small"
-                android:text="Privacy Policy"
+                android:text="@string/privacy_policy"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/text_size_body_small" />
 

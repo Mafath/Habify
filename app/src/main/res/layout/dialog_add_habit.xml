@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="@dimen/spacing_extra_large">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/habit_name"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusTopStart="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_small"
         app:boxStrokeColor="@color/primary_green"
         app:hintTextColor="@color/primary_green"
         android:layout_marginBottom="16dp">
@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
             android:maxLines="1"
-            android:padding="16dp"
-            android:textSize="16sp" />
+            android:padding="@dimen/spacing_large"
+            android:textSize="@dimen/text_size_title_large" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,10 +35,10 @@
         android:layout_height="wrap_content"
         android:hint="@string/habit_description"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusTopStart="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_small"
+        app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_small"
         app:boxStrokeColor="@color/primary_green"
         app:hintTextColor="@color/primary_green"
         android:layout_marginBottom="16dp">
@@ -50,8 +50,8 @@
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="3"
             android:minLines="2"
-            android:padding="16dp"
-            android:textSize="16sp"
+            android:padding="@dimen/spacing_large"
+            android:textSize="@dimen/text_size_title_large"
             android:gravity="top" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,19 +60,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/spacing_large">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/spacing_small"
             android:hint="@string/habit_target"
             app:boxBackgroundMode="outline"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusTopStart="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_small"
             app:boxStrokeColor="@color/primary_green"
             app:hintTextColor="@color/primary_green">
 
@@ -82,9 +82,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLines="1"
-                android:text="1"
-                android:padding="16dp"
-                android:textSize="16sp" />
+                android:text="@string/default_target_value"
+                android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/text_size_title_large" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,13 +92,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/spacing_small"
             android:hint="@string/habit_unit"
             app:boxBackgroundMode="outline"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusTopStart="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_small"
+            app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_small"
             app:boxStrokeColor="@color/primary_green"
             app:hintTextColor="@color/primary_green">
 
@@ -107,9 +107,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
-                android:text="times"
-                android:padding="16dp"
-                android:textSize="16sp"
+                android:text="@string/unit_times"
+                android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/text_size_title_large"
                 android:focusable="false"
                 android:clickable="true" />
 
@@ -122,10 +122,10 @@
         android:id="@+id/chip_group_units"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/spacing_large"
         app:singleLine="false"
-        app:chipSpacingHorizontal="8dp"
-        app:chipSpacingVertical="4dp"
+        app:chipSpacingHorizontal="@dimen/spacing_small"
+        app:chipSpacingVertical="@dimen/spacing_extra_small"
         android:visibility="gone">
 
         <com.google.android.material.chip.Chip
@@ -133,7 +133,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="times"
+            android:text="@string/unit_times"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -142,7 +142,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="minutes"
+            android:text="@string/unit_minutes"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -151,7 +151,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hours"
+            android:text="@string/unit_hours"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -160,7 +160,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="glasses"
+            android:text="@string/unit_glasses"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -169,7 +169,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="steps"
+            android:text="@string/unit_steps"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -178,7 +178,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="pages"
+            android:text="@string/unit_pages"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 
@@ -187,7 +187,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="km"
+            android:text="@string/unit_km"
             app:chipBackgroundColor="@color/chip_background_selector"
             android:textColor="@color/text_primary" />
 

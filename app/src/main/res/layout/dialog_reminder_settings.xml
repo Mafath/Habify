@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/water_goal"
         app:boxBackgroundMode="outline"
-        app:suffixText="ml">
+        app:suffixText="@string/ml_unit">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_daily_goal"
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Reminder Frequency"
+        android:text="@string/reminder_frequency_title"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="30 min"
+            android:text="@string/freq_30_min"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="1 hour"
+            android:text="@string/freq_1_hour"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="2 hours"
+            android:text="@string/freq_2_hours"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="3 hours"
+            android:text="@string/freq_3_hours"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="4 hours"
+            android:text="@string/freq_4_hours"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
-            android:text="Custom"
+            android:text="@string/freq_custom"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             app:backgroundTint="@color/white" />
@@ -116,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Reminder Time"
+        android:text="@string/reminder_time_title"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
@@ -139,10 +139,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Set Reminder Time"
+                android:text="@string/set_reminder_time"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size_label_small" />
 
             <TextView
                 android:id="@+id/tv_reminder_time"
@@ -150,10 +150,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:padding="8dp"
-                android:text="08:00"
+                android:text="@string/default_reminder_time"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_title_large"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -193,18 +193,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Notification Permission Required"
+                android:text="@string/notification_permission_required"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                android:textSize="@dimen/text_size_title_large"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Enable notifications to receive hydration reminders"
+                    android:text="@string/notification_permission_subtext"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/text_size_body_small" />
 
             </LinearLayout>
 
@@ -214,7 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="Enable"
+                android:text="@string/btn_enable"
                 android:textColor="@color/white"
                 app:strokeColor="@color/white" />
 

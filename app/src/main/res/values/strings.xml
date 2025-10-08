@@ -76,6 +76,43 @@
     <string name="ml_unit">ml</string>
     <string name="goal_reached">Great! You\'ve reached your daily goal!</string>
 
+    <!-- Hydration UI - Recent and reminder copy -->
+    <string name="recent_intakes">Recent Intakes</string>
+    <string name="empty_hydration_title">Add your first water intake</string>
+    <string name="empty_hydration_subtitle">Stay hydrated, one tap away</string>
+    <string name="reminder_frequency_title">Reminder Frequency</string>
+    <string name="reminder_time_title">Reminder Time</string>
+    <string name="set_reminder_time">Set Reminder Time</string>
+    <string name="btn_enable">Enable</string>
+    <string name="notification_permission_required">Notification Permission Required</string>
+    <string name="notification_permission_subtext">Enable notifications to receive hydration reminders</string>
+    <string name="freq_30_min">30 min</string>
+    <string name="freq_1_hour">1 hour</string>
+    <string name="freq_2_hours">2 hours</string>
+    <string name="freq_3_hours">3 hours</string>
+    <string name="freq_4_hours">4 hours</string>
+    <string name="freq_custom">Custom</string>
+
+    <!-- Generic app title occurrences -->
+    <string name="app_title_habify">Habify</string>
+
+    <!-- Habits/Mood headings and empty states -->
+    <string name="my_routine">My Routine</string>
+    <string name="recent_habits_empty_title">Add your first habit</string>
+    <string name="recent_habits_empty_subtitle">Build better routines, one tap away</string>
+    <string name="mood_empty_title">No mood entries yet</string>
+    <string name="mood_empty_subtitle">Start tracking your mood above</string>
+    <string name="add_mood_plus">Add Mood+</string>
+
+    <!-- Dialog Add Water -->
+    <string name="quick_select">Quick Select</string>
+    <string name="amount_200ml">200ml</string>
+    <string name="amount_250ml">250ml</string>
+    <string name="amount_300ml">300ml</string>
+    <string name="amount_330ml">330ml</string>
+    <string name="amount_500ml">500ml</string>
+    <string name="amount_750ml">750ml</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="notifications">Notifications</string>
@@ -143,4 +180,59 @@
     <string name="onboard2_subtext">Record moods with emojis and notes, see daily emotional patterns.</string>
     <string name="onboard3_headline">Stay Hydrated</string>
     <string name="onboard3_subtext">Get smart reminders to drink water and maintain a healthy routine every day.</string>
+
+    <!-- Onboarding/Common Buttons -->
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+
+    <!-- Registration copy -->
+    <string name="register_subtitle">Create an account to get started</string>
+    <string name="full_name">Full name</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_account">Create Account</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="signup_agree_prefix">By signing up, you agree to our</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="and_word">and</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <!-- Login copy -->
+    <string name="welcome_back">Welcome back! Sign in to continue</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="dont_have_account">Don't have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or_sign_in_with">Or sign in with</string>
+
+    <!-- Widget defaults -->
+    <string name="zero_percent">0%</string>
+
+    <!-- Habit unit labels -->
+    <string name="unit_times">times</string>
+    <string name="unit_minutes">minutes</string>
+    <string name="unit_hours">hours</string>
+    <string name="unit_glasses">glasses</string>
+    <string name="unit_steps">steps</string>
+    <string name="unit_pages">pages</string>
+    <string name="unit_km">km</string>
+
+    <!-- Dialogs -->
+    <string name="edit_daily_goal_title">Edit Daily Goal</string>
+    
+    <!-- Accessibility content descriptions -->
+    <string name="share_habit_content_desc">Share habit</string>
+    <string name="delete_habit_content_desc">Delete habit</string>
+    <string name="edit_habit_content_desc">Edit habit</string>
+    <string name="menu_content_desc">Menu</string>
+    <string name="daily_goal_highlight_content_desc">Daily goal highlight</string>
+    <string name="edit_daily_goal_content_desc">Edit daily goal</string>
+
+    <!-- Hydration defaults (UI placeholders) -->
+    <string name="hydration_default_count">0 of 2000</string>
+    <string name="hydration_summary_default">0 ml consumed (0%)</string>
+    <string name="default_reminder_time">08:00</string>
+    <string name="default_daily_goal_value">2000</string>
+    <string name="default_water_amount">250</string>
+    <string name="default_target_value">1</string>
 </resources>

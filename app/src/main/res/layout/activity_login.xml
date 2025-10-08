@@ -24,8 +24,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
+                app:cardCornerRadius="@dimen/card_corner_radius_xlarge"
+                app:cardElevation="@dimen/card_elevation_large"
                 app:strokeWidth="0dp">
 
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
-                android:text="Welcome back! Sign in to continue"
+                android:text="@string/welcome_back"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_large" />
 
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email address"
+                android:text="@string/email_address"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small"
                 android:layout_marginBottom="@dimen/spacing_extra_small" />
@@ -74,7 +74,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email_address"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:text="Password"
+                android:text="@string/password"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_small" />
 
@@ -106,7 +106,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 app:boxCornerRadiusTopStart="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_medium"
                 app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_medium"
@@ -131,7 +131,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:padding="@dimen/spacing_extra_small"
-                android:text="Forgot Password?"
+                android:text="@string/forgot_password"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/text_size_body_small"
                 android:visibility="gone" />
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height_large"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Sign In"
+                android:text="@string/sign_in"
                     android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_body_large"
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don't have an account?"
+                android:text="@string/dont_have_account"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
 
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
                 android:padding="@dimen/spacing_extra_small"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/text_size_body_medium"
                 android:textStyle="bold" />
@@ -192,7 +192,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Or sign in with"
+                android:text="@string/or_sign_in_with"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/text_size_body_medium" />
 

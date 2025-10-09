@@ -6,10 +6,6 @@ import com.example.wellnesmate.data.models.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * Manager class for handling SharedPreferences operations
- * Provides methods to store and retrieve all app data
- */
 class SharedPreferencesManager(context: Context) {
     
     private val sharedPrefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -18,7 +14,6 @@ class SharedPreferencesManager(context: Context) {
     companion object {
         private const val PREFS_NAME = "wellnesmate_prefs"
         
-        // Legacy keys for backward compatibility
         private const val KEY_HABITS = "habits"
         private const val KEY_HABIT_PROGRESS = "habit_progress"
         private const val KEY_MOOD_ENTRIES = "mood_entries"
@@ -32,7 +27,6 @@ class SharedPreferencesManager(context: Context) {
     private const val KEY_USER_EMAIL = "user_email"
     private const val KEY_USER_PASSWORD_HASH = "user_password_hash"
         
-        // New keys for direct storage
         private const val KEY_HABITS_COUNT = "habits_count"
         private const val KEY_HABIT_PREFIX = "habit"
         private const val KEY_HABIT_PROGRESS_COUNT = "habit_progress_count"
@@ -52,11 +46,9 @@ class SharedPreferencesManager(context: Context) {
         }
     }
     
-    // HABIT MANAGEMENT
     
     fun saveHabits(habits: List<Habit>) {
         val editor = sharedPrefs.edit()
-        // Clear existing habits
         editor.remove(KEY_HABITS_COUNT)
         for (i in 0 until getHabitCount()) {
             val habitPrefix = "${KEY_HABIT_PREFIX}_$i"
@@ -69,7 +61,6 @@ class SharedPreferencesManager(context: Context) {
             editor.remove("${habitPrefix}_isActive")
         }
         
-        // Save new habits
         editor.putInt(KEY_HABITS_COUNT, habits.size)
         habits.forEachIndexed { index, habit ->
             val habitPrefix = "${KEY_HABIT_PREFIX}_$index"
@@ -126,15 +117,12 @@ class SharedPreferencesManager(context: Context) {
         habits.removeAll { it.id == habitId }
         saveHabits(habits)
         
-        // Also delete related progress data
         deleteHabitProgress(habitId)
     }
     
-    // HABIT PROGRESS MANAGEMENT
     
     fun saveHabitProgress(progress: List<HabitProgress>) {
         val editor = sharedPrefs.edit()
-        // Clear existing progress
         editor.remove(KEY_HABIT_PROGRESS_COUNT)
         for (i in 0 until getHabitProgressCount()) {
             val progressPrefix = "${KEY_HABIT_PROGRESS_PREFIX}_$i"
@@ -145,7 +133,6 @@ class SharedPreferencesManager(context: Context) {
             editor.remove("${progressPrefix}_completionTime")
         }
         
-        // Save new progress entries
         editor.putInt(KEY_HABIT_PROGRESS_COUNT, progress.size)
         progress.forEachIndexed { index, item ->
             val progressPrefix = "${KEY_HABIT_PROGRESS_PREFIX}_$index"
@@ -213,11 +200,9 @@ class SharedPreferencesManager(context: Context) {
         saveHabitProgress(progress)
     }
     
-    // MOOD MANAGEMENT
     
     fun saveMoodEntries(entries: List<MoodEntry>) {
         val editor = sharedPrefs.edit()
-        // Clear existing entries
         editor.remove(KEY_MOOD_ENTRIES_COUNT)
         for (i in 0 until getMoodEntriesCount()) {
             val entryPrefix = "${KEY_MOOD_ENTRY_PREFIX}_$i"
@@ -229,7 +214,6 @@ class SharedPreferencesManager(context: Context) {
             editor.remove("${entryPrefix}_date")
         }
         
-        // Save new entries
         editor.putInt(KEY_MOOD_ENTRIES_COUNT, entries.size)
         entries.forEachIndexed { index, entry ->
             val entryPrefix = "${KEY_MOOD_ENTRY_PREFIX}_$index"
@@ -296,7 +280,6 @@ class SharedPreferencesManager(context: Context) {
         return getMoodEntries().filter { it.date == today }
     }
     
-    // HYDRATION MANAGEMENT
     
     fun saveHydrationSettings(settings: HydrationSettings) {
         val editor = sharedPrefs.edit()
@@ -324,7 +307,6 @@ class SharedPreferencesManager(context: Context) {
     
     fun saveHydrationIntake(intake: List<HydrationIntake>) {
         val editor = sharedPrefs.edit()
-        // Clear existing entries
         editor.remove(KEY_HYDRATION_INTAKE_COUNT)
         for (i in 0 until getHydrationIntakeCount()) {
             val intakePrefix = "${KEY_HYDRATION_INTAKE_PREFIX}_$i"
@@ -335,7 +317,6 @@ class SharedPreferencesManager(context: Context) {
             editor.remove("${intakePrefix}_note")
         }
         
-        // Save new entries
         editor.putInt(KEY_HYDRATION_INTAKE_COUNT, intake.size)
         intake.forEachIndexed { index, item ->
             val intakePrefix = "${KEY_HYDRATION_INTAKE_PREFIX}_$index"
@@ -394,7 +375,6 @@ class SharedPreferencesManager(context: Context) {
         saveHydrationIntake(intakes)
     }
     
-    // APP SETTINGS
     
     fun setFirstLaunch(isFirst: Boolean) {
         sharedPrefs.edit().putBoolean(KEY_FIRST_LAUNCH, isFirst).apply()
@@ -412,7 +392,6 @@ class SharedPreferencesManager(context: Context) {
         return sharedPrefs.getLong(KEY_LAST_BACKUP, 0)
     }
     
-    // User login methods
     fun setUserLoggedIn(isLoggedIn: Boolean) {
         sharedPrefs.edit().putBoolean(KEY_IS_LOGGED_IN, isLoggedIn).apply()
     }
@@ -421,7 +400,6 @@ class SharedPreferencesManager(context: Context) {
         return sharedPrefs.getBoolean(KEY_IS_LOGGED_IN, false)
     }
 
-    // AUTH MANAGEMENT
     fun isUserRegistered(): Boolean {
         val email = sharedPrefs.getString(KEY_USER_EMAIL, null)
         val pwd = sharedPrefs.getString(KEY_USER_PASSWORD_HASH, null)
@@ -431,7 +409,6 @@ class SharedPreferencesManager(context: Context) {
     fun getRegisteredEmail(): String? = sharedPrefs.getString(KEY_USER_EMAIL, null)
 
     fun registerUser(name: String, email: String, plainPassword: String): Boolean {
-        // If already registered with same email, treat as duplicate
         val existingEmail = sharedPrefs.getString(KEY_USER_EMAIL, null)
         if (!existingEmail.isNullOrEmpty() && existingEmail.equals(email, ignoreCase = true)) {
             return false
@@ -466,24 +443,19 @@ class SharedPreferencesManager(context: Context) {
             val bytes = md.digest(plain.toByteArray(Charsets.UTF_8))
             bytes.joinToString("") { b -> "%02x".format(b) }
         } catch (e: Exception) {
-            // Fallback to simple hashCode (not secure), but avoids crash
             plain.hashCode().toString()
         }
     }
     
-    // UTILITY METHODS
     
     fun clearAllData() {
         sharedPrefs.edit().clear().apply()
     }
     
     fun exportData(): String {
-        // For export functionality, we'll need to create a formatted string manually
-        // This is a simplified JSON structure created manually
         val sb = StringBuilder()
         sb.append("{")
         
-        // Export habits
         sb.append("\"habits\":[")
         val habits = getHabits()
         habits.forEachIndexed { index, habit ->
@@ -500,7 +472,6 @@ class SharedPreferencesManager(context: Context) {
         }
         sb.append("],")
         
-        // Export habit progress
         sb.append("\"habitProgress\":[")
         val habitProgress = getHabitProgress()
         habitProgress.forEachIndexed { index, progress ->
@@ -515,7 +486,6 @@ class SharedPreferencesManager(context: Context) {
         }
         sb.append("],")
         
-        // Export mood entries
         sb.append("\"moodEntries\":[")
         val moodEntries = getMoodEntries()
         moodEntries.forEachIndexed { index, entry ->
@@ -531,7 +501,6 @@ class SharedPreferencesManager(context: Context) {
         }
         sb.append("],")
         
-        // Export hydration settings
         val settings = getHydrationSettings()
         sb.append("\"hydrationSettings\":{")
         sb.append("\"dailyGoalMl\":${settings.dailyGoalMl},")
@@ -543,7 +512,6 @@ class SharedPreferencesManager(context: Context) {
         sb.append("\"lastUpdated\":${settings.lastUpdated.time}")
         sb.append("},")
         
-        // Export hydration intake
         sb.append("\"hydrationIntake\":[")
         val hydrationIntake = getHydrationIntake()
         hydrationIntake.forEachIndexed { index, intake ->
@@ -558,14 +526,12 @@ class SharedPreferencesManager(context: Context) {
         }
         sb.append("],")
         
-        // Export date
         sb.append("\"exportDate\":${Date().time}")
         
         sb.append("}")
         return sb.toString()
     }
     
-    // Helper function to escape JSON strings
     private fun escapeJson(str: String): String {
         return str.replace("\\", "\\\\")
             .replace("\"", "\\\"")
@@ -575,12 +541,10 @@ class SharedPreferencesManager(context: Context) {
             .replace("\t", "\\t")
     }
     
-    // Get current date string
     fun getCurrentDateString(): String {
         return dateFormat.format(Date())
     }
     
-    // Calculate habit streak
     fun calculateHabitStreak(habitId: String): Int {
         val progress = getHabitProgress()
             .filter { it.habitId == habitId && it.isCompleted }
@@ -592,7 +556,6 @@ class SharedPreferencesManager(context: Context) {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         
-        // Start from today and go backwards
         for (i in 0 until 365) { // Check up to a year back
             val dateString = dateFormat.format(calendar.time)
             val hasProgress = progress.any { it.date == dateString }

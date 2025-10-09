@@ -15,16 +15,11 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.switchmaterial.SwitchMaterial
 
-/**
- * Fragment for app settings and preferences
- */
 class SettingsFragment : Fragment() {
     
     private lateinit var prefsManager: SharedPreferencesManager
-    // Removed hydration settings and app info cards
-    private lateinit var cardLogout: MaterialCardView  // Add this line
+    private lateinit var cardLogout: MaterialCardView
     private lateinit var switchNotifications: SwitchMaterial
-    // App version text removed with App Information section
     
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +32,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        // Update toolbar title (removed as toolbar is removed)
         // (activity as? MainActivity)?.updateToolbarTitle(getString(R.string.settings_title))
-        
-        // Initialize components
         initializeViews(view)
         setupClickListeners()
         loadSettings()
@@ -48,21 +40,16 @@ class SettingsFragment : Fragment() {
     
     private fun initializeViews(view: View) {
         prefsManager = SharedPreferencesManager.getInstance(requireContext())
-        // Removed: hydration settings and app info card bindings
-        cardLogout = view.findViewById(R.id.card_logout)  // Add this line
-        // Data management card removed as per user request
+        cardLogout = view.findViewById(R.id.card_logout)
         switchNotifications = view.findViewById(R.id.switch_notifications)
-        // tv_app_version removed from layout
     }
     
     private fun setupClickListeners() {
-        // Removed: hydration settings and app info click listeners
         
         cardLogout.setOnClickListener {
             showLogoutConfirmation()
         }
         
-        // Data management click listener removed as per user request
         
         switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             updateNotificationSettings(isChecked)
@@ -72,7 +59,6 @@ class SettingsFragment : Fragment() {
     private fun loadSettings() {
         val hydrationSettings = prefsManager.getHydrationSettings()
         switchNotifications.isChecked = hydrationSettings.reminderEnabled
-        // Removed: app version text (app info section removed)
     }
     
     private fun updateNotificationSettings(enabled: Boolean) {
@@ -81,14 +67,12 @@ class SettingsFragment : Fragment() {
         prefsManager.saveHydrationSettings(newSettings)
         
         if (enabled) {
-            // Enable notifications
             android.widget.Toast.makeText(
                 requireContext(),
                 "Notifications enabled",
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         } else {
-            // Disable notifications
             androidx.work.WorkManager.getInstance(requireContext())
                 .cancelUniqueWork("hydration_reminder")
             android.widget.Toast.makeText(
@@ -119,81 +103,12 @@ class SettingsFragment : Fragment() {
     }
     
     private fun logout() {
-        // Clear user login status
         prefsManager.setUserLoggedIn(false)
         
-        // Navigate to login screen
         val intent = Intent(activity, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         activity?.finish()
     }
     
-    // Data management methods removed as per user request
-    /*
-    private fun showDataManagementDialog() {
-        val options = arrayOf(
-            "Export Data",
-            "Reset All Data"
-        )
-        
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Data Management")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> exportData()
-                    1 -> showResetDataConfirmation()
-                }
-            }
-            .setNegativeButton(getString(R.string.cancel), null)
-            .show()
-    }
-    
-    private fun exportData() {
-        try {
-            val exportData = prefsManager.exportData()
-            // In a real app, you'd save this to file or share it
-            // For now, we'll just show a toast
-            android.widget.Toast.makeText(
-                requireContext(),
-                "Data exported successfully",
-                android.widget.Toast.LENGTH_LONG
-            ).show()
-        } catch (e: Exception) {
-            android.widget.Toast.makeText(
-                requireContext(),
-                "Export failed: ${e.message}",
-                android.widget.Toast.LENGTH_LONG
-            ).show()
-        }
-    }
-    
-    private fun showResetDataConfirmation() {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Reset All Data")
-            .setMessage("This will permanently delete all your habits, mood entries, and hydration data. This action cannot be undone.")
-            .setPositiveButton("Reset") { _, _ ->
-                resetAllData()
-            }
-            .setNegativeButton(getString(R.string.cancel), null)
-            .show()
-    }
-    
-    private fun resetAllData() {
-        prefsManager.clearAllData()
-        
-        // Cancel any pending work
-        androidx.work.WorkManager.getInstance(requireContext())
-            .cancelUniqueWork("hydration_reminder")
-        
-        android.widget.Toast.makeText(
-            requireContext(),
-            "All data has been reset",
-            android.widget.Toast.LENGTH_LONG
-        ).show()
-        
-        // Refresh the current fragment if needed
-        loadSettings()
-    }
-    */
 }

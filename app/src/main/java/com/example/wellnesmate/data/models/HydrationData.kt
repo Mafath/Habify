@@ -6,7 +6,7 @@ import java.util.*
  * Data class representing hydration settings and preferences
  */
 data class HydrationSettings(
-    val dailyGoalMl: Int = 2000, // Default 2L per day
+    val dailyGoalMl: Int = 3000, // Default 2L per day
     val reminderEnabled: Boolean = true,
     val reminderIntervalMinutes: Int = 60, // Default every hour
     val startTime: Int = 8, // 8 AM

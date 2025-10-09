@@ -22,7 +22,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <activity
-            android:name=".onboards.Launching"
+            android:name="com.example.habify.onboards.Launching"
             android:exported="true"
             android:screenOrientation="unspecified">
             <intent-filter>
@@ -32,26 +32,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".onboards.Onboard3"
+            android:name="com.example.habify.onboards.Onboard3"
             android:exported="false" />
         <activity
-            android:name=".onboards.Onboard2"
+            android:name="com.example.habify.onboards.Onboard2"
             android:exported="false" />
         <activity
-            android:name=".onboards.Onboard1"
+            android:name="com.example.habify.onboards.Onboard1"
             android:exported="false" /> <!-- Login Activity -->
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name="com.example.habify.ui.auth.LoginActivity"
             android:exported="false"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Register Activity -->
         <activity
-            android:name=".ui.auth.RegisterActivity"
+            android:name="com.example.habify.ui.auth.RegisterActivity"
             android:exported="false"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.habify.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false"
             android:screenOrientation="unspecified"
@@ -61,7 +61,7 @@
             android:foregroundServiceType="shortService"
             tools:node="merge" /> <!-- Home Screen Widget -->
         <receiver
-            android:name=".widget.HabitProgressWidget"
+            android:name="com.example.habify.widget.HabitProgressWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -72,18 +72,15 @@
                 android:resource="@xml/habit_progress_widget_info" />
         </receiver> <!-- Hydration Alarm Receiver -->
         <receiver
-            android:name=".receivers.HydrationAlarmReceiver"
+            android:name="com.example.habify.receivers.HydrationAlarmReceiver"
             android:exported="false" /> <!-- Boot Completed Receiver -->
         <receiver
-            android:name=".receivers.BootCompletedReceiver"
+            android:name="com.example.habify.receivers.BootCompletedReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

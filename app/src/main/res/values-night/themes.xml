@@ -4,9 +4,4 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
-    
-    <!-- Habify night theme (new) -->
-    <style name="Base.Theme.Habify" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here if needed. -->
-    </style>
 </resources>

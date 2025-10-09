@@ -31,10 +31,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Check if user is logged in
         prefsManager = SharedPreferencesManager.getInstance(this)
         if (!prefsManager.isUserLoggedIn()) {
-            // Redirect to login screen
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -43,25 +41,19 @@ class MainActivity : AppCompatActivity() {
         
         setContentView(R.layout.activity_main)
         
-        // Initialize bottom navigation
         bottomNavigation = findViewById(R.id.bottom_navigation)
         setupBottomNavigation()
         
-        // Set up window insets for proper layout handling
         setupWindowInsets()
         
-        // Load default fragment
         if (savedInstanceState == null) {
             loadFragment(HabitsFragment())
         }
         
-        // Check and request notification permissions on app start
         checkAndRequestNotificationPermission()
         
-        // Check and request exact alarm permissions on app start
         checkAndRequestExactAlarmPermission()
         
-        // Handle intent extras
         handleIntent(intent)
     }
     
@@ -91,7 +83,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
         
-        // Set the default selected item
         bottomNavigation.selectedItemId = R.id.nav_habits
     }
     
@@ -116,7 +107,6 @@ class MainActivity : AppCompatActivity() {
                     Manifest.permission.POST_NOTIFICATIONS
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // Show explanation dialog before requesting permission
                 androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("Notification Permission Required")
                     .setMessage("WellnesMate needs notification permission to send you hydration reminders. Please grant this permission to receive timely reminders.")
@@ -134,10 +124,8 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun checkAndRequestExactAlarmPermission() {
-        // Only check on Android 12+ (API 31)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (!HydrationAlarmScheduler.canScheduleExactAlarms(this)) {
-                // Show explanation dialog before requesting permission
                 androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("Exact Alarm Permission Required")
                     .setMessage("WellnesMate needs permission to schedule exact alarms for precise hydration reminders. Please grant this permission to receive timely reminders.")
@@ -165,7 +153,6 @@ class MainActivity : AppCompatActivity() {
                         android.widget.Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    // Show explanation why permission is needed
                     androidx.appcompat.app.AlertDialog.Builder(this)
                         .setTitle("Permission Required")
                         .setMessage("Without notification permission, you won't receive hydration reminders. You can enable this permission later in Settings > Apps > WellnesMate > Permissions.")
@@ -184,12 +171,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-    // Method to update the toolbar title from fragments (no longer needed)
-    /*
-    fun updateToolbarTitle(title: String) {
-        findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)?.title = title
-    }
-    */
     
     private fun handleIntent(intent: Intent) {
         when {
@@ -197,9 +178,7 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigation.selectedItemId = R.id.nav_hydration
                 loadFragment(HydrationFragment())
                 
-                // Handle quick add water from notification
                 if (intent.getBooleanExtra("quick_add_water", false)) {
-                    // Add default amount of water (250ml)
                     val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(java.util.Date())
                     val intake = com.example.wellnesmate.data.models.HydrationIntake(
                         date = today,
@@ -216,7 +195,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else -> {
-                // Default to habits fragment
                 loadFragment(HabitsFragment())
             }
         }

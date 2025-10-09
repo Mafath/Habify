@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.auth
+package com.example.habify.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.repository.SharedPreferencesManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 

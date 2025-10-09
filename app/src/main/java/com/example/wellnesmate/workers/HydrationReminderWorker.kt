@@ -1,4 +1,4 @@
-package com.example.wellnesmate.workers
+package com.example.habify.workers
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,9 +9,9 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.repository.SharedPreferencesManager
 
 /**
  * WorkManager worker for hydration reminders

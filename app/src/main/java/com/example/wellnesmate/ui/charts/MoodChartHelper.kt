@@ -1,8 +1,8 @@
-package com.example.wellnesmate.ui.charts
+package com.example.habify.ui.charts
 
 import android.content.Context
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.models.MoodEntry
+import com.example.habify.R
+import com.example.habify.data.models.MoodEntry
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry

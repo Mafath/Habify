@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.WellnesMate" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Habify" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/on_primary</item>
@@ -36,12 +36,12 @@
         <item name="textAppearanceOverline">@style/TextAppearance.Material3.LabelSmall</item>
         
         <!-- Shape -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.WellnesMate.Small</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.WellnesMate.Medium</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.WellnesMate.Large</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Habify.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Habify.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Habify.Large</item>
     </style>
 
-    <style name="Theme.WellnesMate" parent="Base.Theme.WellnesMate" />
+    <style name="Theme.Habify" parent="Base.Theme.Habify" />
     
     <!-- Habify theme (new) -->
     <style name="Base.Theme.Habify" parent="Theme.Material3.DayNight.NoActionBar">
@@ -90,17 +90,17 @@
     <!-- Text appearance override for gradient title on splash (kept simple via drawable on TextView) -->
     
     <!-- Shape Appearances -->
-    <style name="ShapeAppearance.WellnesMate.Small" parent="ShapeAppearance.Material3.SmallComponent">
+    <style name="ShapeAppearance.Habify.Small" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
     
-    <style name="ShapeAppearance.WellnesMate.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+    <style name="ShapeAppearance.Habify.Medium" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
     
-    <style name="ShapeAppearance.WellnesMate.Large" parent="ShapeAppearance.Material3.LargeComponent">
+    <style name="ShapeAppearance.Habify.Large" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>

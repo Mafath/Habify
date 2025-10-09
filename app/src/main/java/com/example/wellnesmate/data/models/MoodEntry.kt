@@ -1,4 +1,4 @@
-package com.example.wellnesmate.data.models
+package com.example.habify.data.models
 
 import java.text.SimpleDateFormat
 import java.util.*

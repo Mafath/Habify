@@ -1,4 +1,4 @@
-package com.example.wellnesmate.receivers
+package com.example.habify.receivers
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,9 +9,9 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.repository.SharedPreferencesManager
 
 /**
  * BroadcastReceiver for handling hydration alarm notifications

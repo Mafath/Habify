@@ -1,4 +1,4 @@
-package com.example.wellnesmate.onboards
+package com.example.habify.onboards
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wellnesmate.R
+import com.example.habify.R
 
 class Onboard1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class Onboard1 : AppCompatActivity() {
 
         val skipButton = findViewById<Button>(R.id.skipButton)
         skipButton.setOnClickListener {
-            val intent = Intent(this, com.example.wellnesmate.MainActivity::class.java)
+            val intent = Intent(this, com.example.habify.MainActivity::class.java)
             startActivity(intent)
             finish()
         }

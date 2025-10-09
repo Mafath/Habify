@@ -1,4 +1,4 @@
-package com.example.wellnesmate.onboards
+package com.example.habify.onboards
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wellnesmate.R
+import com.example.habify.R
 
 class Launching : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

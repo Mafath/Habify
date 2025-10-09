@@ -1,8 +1,8 @@
-package com.example.wellnesmate.data.repository
+package com.example.habify.data.repository
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.wellnesmate.data.models.*
+import com.example.habify.data.models.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -12,7 +12,7 @@ class SharedPreferencesManager(context: Context) {
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     
     companion object {
-        private const val PREFS_NAME = "wellnesmate_prefs"
+        private const val PREFS_NAME = "habify_prefs"
         
         private const val KEY_HABITS = "habits"
         private const val KEY_HABIT_PROGRESS = "habit_progress"

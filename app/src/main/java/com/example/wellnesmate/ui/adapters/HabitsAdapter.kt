@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.adapters
+package com.example.habify.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.models.Habit
-import com.example.wellnesmate.data.models.HabitProgress
+import com.example.habify.R
+import com.example.habify.data.models.Habit
+import com.example.habify.data.models.HabitProgress
 import com.google.android.material.button.MaterialButton
 
 /**
@@ -22,7 +22,7 @@ class HabitsAdapter(
 ) : RecyclerView.Adapter<HabitsAdapter.HabitViewHolder>() {
 
     private var habitsWithProgress: List<Pair<Habit, HabitProgress>> = emptyList()
-    private lateinit var prefsManager: com.example.wellnesmate.data.repository.SharedPreferencesManager
+    private lateinit var prefsManager: com.example.habify.data.repository.SharedPreferencesManager
 
     fun updateHabits(newHabitsWithProgress: List<Pair<Habit, HabitProgress>>) {
         habitsWithProgress = newHabitsWithProgress
@@ -59,7 +59,7 @@ class HabitsAdapter(
         fun bind(habit: Habit, progress: HabitProgress) {
             // Initialize SharedPreferences manager if needed
             if (!::prefsManager.isInitialized) {
-                prefsManager = com.example.wellnesmate.data.repository.SharedPreferencesManager.getInstance(itemView.context)
+                prefsManager = com.example.habify.data.repository.SharedPreferencesManager.getInstance(itemView.context)
             }
             
             // Basic habit info

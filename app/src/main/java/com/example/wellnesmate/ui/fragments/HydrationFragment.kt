@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.fragments
+package com.example.habify.ui.fragments
 
 import android.Manifest
 import android.app.AlertDialog
@@ -29,14 +29,14 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.models.HydrationIntake
-import com.example.wellnesmate.data.models.HydrationSettings
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
-import com.example.wellnesmate.receivers.HydrationAlarmScheduler
-import com.example.wellnesmate.ui.adapters.HydrationHistoryAdapter
-import com.example.wellnesmate.workers.HydrationReminderWorker
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.models.HydrationIntake
+import com.example.habify.data.models.HydrationSettings
+import com.example.habify.data.repository.SharedPreferencesManager
+import com.example.habify.receivers.HydrationAlarmScheduler
+import com.example.habify.ui.adapters.HydrationHistoryAdapter
+import com.example.habify.workers.HydrationReminderWorker
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

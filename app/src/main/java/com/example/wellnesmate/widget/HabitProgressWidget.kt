@@ -1,4 +1,4 @@
-package com.example.wellnesmate.widget
+package com.example.habify.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -6,9 +6,9 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.repository.SharedPreferencesManager
 import java.text.SimpleDateFormat
 import java.util.*
 

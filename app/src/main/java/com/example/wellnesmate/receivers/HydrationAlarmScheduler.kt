@@ -1,4 +1,4 @@
-package com.example.wellnesmate.receivers
+package com.example.habify.receivers
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -6,8 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.AlarmManagerCompat
-import com.example.wellnesmate.data.models.HydrationSettings
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.data.models.HydrationSettings
+import com.example.habify.data.repository.SharedPreferencesManager
 import java.text.SimpleDateFormat
 import java.util.*
 

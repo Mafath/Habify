@@ -1,4 +1,4 @@
-package com.example.wellnesmate.sensors
+package com.example.habify.sensors
 
 import android.content.Context
 import android.hardware.Sensor

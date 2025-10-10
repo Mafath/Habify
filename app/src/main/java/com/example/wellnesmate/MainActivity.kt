@@ -1,4 +1,4 @@
-package com.example.wellnesmate
+package com.example.habify
 
 import android.Manifest
 import android.content.Intent
@@ -11,13 +11,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
-import com.example.wellnesmate.receivers.HydrationAlarmScheduler
-import com.example.wellnesmate.ui.auth.LoginActivity
-import com.example.wellnesmate.ui.fragments.HabitsFragment
-import com.example.wellnesmate.ui.fragments.HydrationFragment
-import com.example.wellnesmate.ui.fragments.MoodFragment
-import com.example.wellnesmate.ui.fragments.SettingsFragment
+import com.example.habify.data.repository.SharedPreferencesManager
+import com.example.habify.receivers.HydrationAlarmScheduler
+import com.example.habify.ui.auth.LoginActivity
+import com.example.habify.ui.fragments.HabitsFragment
+import com.example.habify.ui.fragments.HydrationFragment
+import com.example.habify.ui.fragments.MoodFragment
+import com.example.habify.ui.fragments.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("Notification Permission Required")
-                    .setMessage("WellnesMate needs notification permission to send you hydration reminders. Please grant this permission to receive timely reminders.")
+                    .setMessage("Habify needs notification permission to send you hydration reminders. Please grant this permission to receive timely reminders.")
                     .setPositiveButton("Grant Permission") { _, _ ->
                         ActivityCompat.requestPermissions(
                             this,
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
             if (!HydrationAlarmScheduler.canScheduleExactAlarms(this)) {
                 androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("Exact Alarm Permission Required")
-                    .setMessage("WellnesMate needs permission to schedule exact alarms for precise hydration reminders. Please grant this permission to receive timely reminders.")
+                    .setMessage("Habify needs permission to schedule exact alarms for precise hydration reminders. Please grant this permission to receive timely reminders.")
                     .setPositiveButton("Grant Permission") { _, _ ->
                         HydrationAlarmScheduler.requestExactAlarmPermission(this)
                     }
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     androidx.appcompat.app.AlertDialog.Builder(this)
                         .setTitle("Permission Required")
-                        .setMessage("Without notification permission, you won't receive hydration reminders. You can enable this permission later in Settings > Apps > WellnesMate > Permissions.")
+                        .setMessage("Without notification permission, you won't receive hydration reminders. You can enable this permission later in Settings > Apps > Habify > Permissions.")
                         .setPositiveButton("Open Settings") { _, _ ->
                             val intent = android.content.Intent(
                                 android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
                 
                 if (intent.getBooleanExtra("quick_add_water", false)) {
                     val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(java.util.Date())
-                    val intake = com.example.wellnesmate.data.models.HydrationIntake(
+                    val intake = com.example.habify.data.models.HydrationIntake(
                         date = today,
                         amountMl = 250,
                         timestamp = java.util.Date()

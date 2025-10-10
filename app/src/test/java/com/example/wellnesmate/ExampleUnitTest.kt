@@ -1,4 +1,4 @@
-package com.example.wellnesmate
+package com.example.habify
 
 import org.junit.Test
 

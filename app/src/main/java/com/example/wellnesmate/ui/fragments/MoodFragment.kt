@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.fragments
+package com.example.habify.ui.fragments
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.models.MoodEntry
-import com.example.wellnesmate.data.models.MoodType
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
-import com.example.wellnesmate.ui.adapters.MoodSelectorAdapter
-import com.example.wellnesmate.ui.adapters.MoodHistoryAdapter
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.models.MoodEntry
+import com.example.habify.data.models.MoodType
+import com.example.habify.data.repository.SharedPreferencesManager
+import com.example.habify.ui.adapters.MoodSelectorAdapter
+import com.example.habify.ui.adapters.MoodHistoryAdapter
  
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

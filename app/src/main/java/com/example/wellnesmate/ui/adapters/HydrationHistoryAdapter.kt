@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.adapters
+package com.example.habify.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.models.HydrationIntake
+import com.example.habify.R
+import com.example.habify.data.models.HydrationIntake
 import java.text.SimpleDateFormat
 import java.util.*
 

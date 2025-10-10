@@ -1,4 +1,4 @@
-package com.example.wellnesmate.ui.fragments
+package com.example.habify.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.wellnesmate.MainActivity
-import com.example.wellnesmate.R
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
-import com.example.wellnesmate.ui.auth.LoginActivity
+import com.example.habify.MainActivity
+import com.example.habify.R
+import com.example.habify.data.repository.SharedPreferencesManager
+import com.example.habify.ui.auth.LoginActivity
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.switchmaterial.SwitchMaterial

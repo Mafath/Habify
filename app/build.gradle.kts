@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.wellnesmate"
+    namespace = "com.example.habify"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.wellnesmate"
+        applicationId = "com.example.habify"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

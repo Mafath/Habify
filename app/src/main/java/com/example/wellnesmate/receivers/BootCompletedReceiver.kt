@@ -1,9 +1,9 @@
-package com.example.wellnesmate.receivers
+package com.example.habify.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.example.wellnesmate.data.repository.SharedPreferencesManager
+import com.example.habify.data.repository.SharedPreferencesManager
 
 
 class BootCompletedReceiver : BroadcastReceiver() {

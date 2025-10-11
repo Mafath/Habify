@@ -116,11 +116,11 @@ class HydrationAlarmReceiver : BroadcastReceiver() {
         // Build the goal reached notification
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_water_drop)
-            .setContentTitle("Goal Reached! 🎉")
-            .setContentText("Congratulations! You've reached your daily hydration goal.")
+            .setContentTitle("🎉 Goal Reached!")
+            .setContentText("Great job! You've hit your daily water goal.")
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText("Great job staying hydrated! You've reached your daily water intake goal.")
+                    .bigText("Well done! Keep up the good work.")
             )
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)

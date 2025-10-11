@@ -125,6 +125,8 @@
     <string name="about">About Habify</string>
     <string name="reset_data">Reset All Data</string>
     <string name="export_data">Export Data</string>
+    <string name="logout">Logout</string>
+    <string name="logout_subtitle">Sign out of your account</string>
 
     <!-- General -->
     <string name="save">Save</string>

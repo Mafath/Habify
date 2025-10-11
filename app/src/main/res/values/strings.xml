@@ -70,9 +70,9 @@
     <string name="water_amount">Amount (ml)</string>
     <string name="set_reminder">Set Reminder</string>
     <string name="reminder_interval">Reminder Interval</string>
-    <string name="hydration_reminder">Hydration Reminder</string>
-    <string name="time_to_drink_water">Time to drink water! 💧</string>
-    <string name="stay_hydrated">Stay hydrated for better health</string>
+    <string name="hydration_reminder">💧 Hydration Time!</string>
+    <string name="time_to_drink_water">Time to drink water!</string>
+    <string name="stay_hydrated">Stay hydrated!</string>
     <string name="ml_unit">ml</string>
     <string name="goal_reached">Great! You\'ve reached your daily goal!</string>
 

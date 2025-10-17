@@ -357,8 +357,6 @@ copies or substantial portions of the Software.
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/habify/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/habify/discussions)
-- **Email**: support@habify.app
-- **Website**: [habify.app](https://habify.app)
 
 ---
 

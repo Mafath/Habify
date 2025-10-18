@@ -287,28 +287,6 @@ We welcome contributions! Here's how you can help:
 
 ---
 
-## 📋 Roadmap
-
-### **Version 1.1** (Coming Soon)
-- [ ] **Data Export** - Export habits and mood data
-- [ ] **Backup & Restore** - Cloud backup functionality
-- [ ] **Advanced Analytics** - More detailed insights
-- [ ] **Habit Templates** - Pre-made habit suggestions
-
-### **Version 1.2** (Future)
-- [ ] **Social Features** - Share progress with friends
-- [ ] **Challenges** - Monthly wellness challenges
-- [ ] **Integration** - Health apps and wearables
-- [ ] **AI Insights** - Personalized recommendations
-
-### **Long-term Goals**
-- [ ] **iOS Version** - Cross-platform support
-- [ ] **Web Dashboard** - Desktop companion
-- [ ] **Team Features** - Family/group tracking
-- [ ] **Professional** - Corporate wellness
-
----
-
 ## 🐛 Known Issues
 
 - **Widget updates** may be delayed on some devices
